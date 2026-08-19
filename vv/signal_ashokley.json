@@ -1,0 +1,79 @@
+{
+  "ticker": "ASHOKLEY.NS",
+  "as_of": "2026-08-14T10:00:00Z",
+  "timeframe_analyzed": "Daily -> 1H",
+  "htf_bias": "Bearish",
+  "liquidity": {
+    "bsl": [
+      {
+        "label": "08-10 swing high (swept 08-13)",
+        "price": 179.0
+      },
+      {
+        "label": "08-13 sweep extreme",
+        "price": 182.7
+      }
+    ],
+    "ssl": [
+      {
+        "label": "08-14 low",
+        "price": 169.75
+      },
+      {
+        "label": "07-24 major swing low",
+        "price": 147.59
+      }
+    ]
+  },
+  "narrative": "Price rallied 147.59 -> 182.70 then engineered a classic sweep: on 08-13 it ran above the 179.00 swing high to 182.70, taking buy-side liquidity, and closed at 176.23 -- the exact low of that bar. On 08-14 it followed through, closing 171.64 below the 172.00 higher-low, a change of character. The draw on liquidity is the unfilled bullish FVG at 166.70-169.75, with the 160.00 consolidation beneath it. Price sits below both the bearish order block and the OTE, so a short at market is chasing; the trade is a retrace up into 177.78-179.98.",
+  "zones": {
+    "order_block": {
+      "direction": "bearish",
+      "low": 174.43,
+      "high": 177.38,
+      "timeframe": "1d"
+    },
+    "fvg": {
+      "low": 166.7,
+      "high": 169.75,
+      "timeframe": "1d"
+    },
+    "dealing_range": {
+      "low": 147.59,
+      "high": 182.7
+    },
+    "equilibrium": 165.145,
+    "premium_discount": "premium",
+    "ote": {
+      "low": 177.78,
+      "high": 179.98,
+      "swing_high": 182.7,
+      "swing_low": 169.75
+    }
+  },
+  "signal": "NO_TRADE",
+  "entry": null,
+  "stop_loss": null,
+  "take_profits": [],
+  "risk_reward": null,
+  "invalidation": "A daily close back above 182.70 (the sweep extreme) negates the sweep-and-reject and re-opens the prior uptrend.",
+  "confidence": "Medium",
+  "resolution_interval": "5m",
+  "horizon_hours": 240,
+  "round_trip_cost_pct": 0.001,
+  "track_record": {
+    "note": "Insufficient history for ASHOKLEY.NS: 0 resolved trade(s) logged (need 5), 0 still open. Not used to adjust this signal.",
+    "sufficient_history": false,
+    "wins": 0,
+    "losses": 0,
+    "timeouts": 0,
+    "decisive_resolved": 0
+  },
+  "hypothetical": {
+    "note": "Hypothetical SELL on a retrace into the OTE of the 182.70->169.75 down-leg. Not live at market -- price is below the PD array and shorting here would be chasing.",
+    "bias_direction": "bearish",
+    "entry": 178.5,
+    "stop_loss": 183.5,
+    "take_profit": 166.7
+  }
+}

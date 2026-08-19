@@ -1,0 +1,19 @@
+SIGNAL: NO TRADE (wait for the retrace trigger)
+Bearish while price holds below 543.70; that read is invalidated on a 1H close back above it.
+
+CONCOR ran to 543.70 on 08-14, clearing the 531.70 equal-high cluster and the 08-13 high, then gave the
+whole move back to close at 527.00 -- the low of the day and below every level it had just taken out.
+That is a buy-side liquidity raid and distribution, and the draw is now toward 511.70 and the 498.25
+higher low, with the unfilled 484.20-511.70 bullish FVG sitting beneath as the deeper magnet.
+
+Why this is NO TRADE rather than a short: daily structure since 07-27 is still higher highs and higher
+lows with no change of character, so this is counter-trend. Price at 527.00 is also mid-air -- 5 points
+above the 530.70-534.95 bearish order block and 10 below the 537.35-540.19 OTE -- so entering here means
+guessing which zone price returns to. The trade triggers only on a retrace into the OTE at 537.35-540.19,
+stop 546.00 above the sweep high, first target 511.70. R:R 2.97.
+
+Caveat: the reversal is one bar old and unconfirmed. A gap-up Monday leaves this unfilled rather than
+triggering it, and a close above 543.70 voids the idea entirely.
+
+This is a technical analysis educational exercise based on ICT concepts, not financial advice. Markets
+carry real risk of loss — verify independently and manage position sizing/risk before trading.

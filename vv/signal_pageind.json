@@ -1,0 +1,42 @@
+{
+  "ticker": "PAGEIND.NS",
+  "as_of": "2026-08-17T07:00:00Z",
+  "timeframe_analyzed": "Daily -> 1H -> 15M",
+  "htf_bias": "Bearish",
+  "liquidity": {
+    "bsl": [
+      {"label": "10 Aug swing high — last point of supply before the breakdown", "price": 40270.0}
+    ],
+    "ssl": [
+      {"label": "14 Aug session low, first pool below", "price": 36620.0},
+      {"label": "13 Aug capitulation low, the draw", "price": 36410.0}
+    ]
+  },
+  "narrative": "Page fell from 40270.00 on 10 Aug to 36410.00 on 13 Aug — roughly 9.5% in four sessions, with 121k and 119k shares traded on 13 and 14 Aug against a 10-25k norm. That is an event repricing, not ordinary distribution, and it broke the 39250.00/39485.00 July lows: break of structure down, lower highs and lower lows intact. Today is the counter-rally, +2.4% off 36505.00, and it is being drawn up into the inefficiency the breakdown left behind — an unfilled 1H bearish fair value gap at 38625.00-39100.00 that sits directly under the daily bearish FVG at 38795.00-39735.00 and inside the 62-79% retracement of the whole down leg. The draw after that rebalance is back down to the 36620.00/36410.00 sell-side pool, which has not been taken.",
+  "zones": {
+    "order_block": {"direction": "bearish", "low": 39150.0, "high": 39295.0, "timeframe": "1h"},
+    "fvg": {"low": 38625.0, "high": 39100.0, "timeframe": "1h"},
+    "dealing_range": {"low": 36410.0, "high": 40270.0},
+    "equilibrium": 38340.0,
+    "premium_discount": "discount",
+    "ote": {"low": 38803.2, "high": 39459.4, "swing_high": 40270.0, "swing_low": 36410.0}
+  },
+  "signal": "SELL",
+  "entry": 38800.0,
+  "stop_loss": 39310.0,
+  "take_profits": [36620.0, 36410.0],
+  "risk_reward": 4.27,
+  "invalidation": "A 1H close above 39295.00 puts price through the bearish order block and back inside the pre-breakdown range; above 39735.00 the daily FVG is fully rebalanced and the bearish leg is void. Entry is a resting limit 3.1% above spot — if the counter-rally stalls below 38625.00 there is no trade, and selling here at 37645.00 in the discount half of the range is not part of this plan.",
+  "confidence": "Medium",
+  "resolution_interval": "15m",
+  "horizon_hours": 168,
+  "round_trip_cost_pct": 0.001,
+  "track_record": {
+    "note": "Insufficient history for PAGEIND.NS: 0 resolved trade(s) logged (need 5), 0 still open. Not used to adjust this signal.",
+    "sufficient_history": false,
+    "wins": 0,
+    "losses": 0,
+    "timeouts": 0,
+    "decisive_resolved": 0
+  }
+}

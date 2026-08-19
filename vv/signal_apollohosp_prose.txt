@@ -1,0 +1,5 @@
+SIGNAL: NO TRADE at market (wait for the retrace trigger)
+Bias is bullish while price holds above 8588.50; invalidated on a daily close back below that level.
+Price closed at 8920.50, 99% of the 08-14 reversal bar's range and already in premium at 76% of the dealing range -- buying here is chasing. The trade triggers on a retrace into the 8659.17-8716.37 OTE, which overlaps the 8600.00-8740.50 bullish order block. Stop 8570.00 below the reversal bar low, targets 8990.00 then 9050.00.
+Caveat: the reversal is one bar old and has not been retested. A gap-up Monday would leave this setup unfilled rather than triggering it.
+This is a technical analysis educational exercise based on ICT concepts, not financial advice. Markets carry real risk of loss — verify independently and manage position sizing/risk before trading.

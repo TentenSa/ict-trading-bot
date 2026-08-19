@@ -1,0 +1,23 @@
+SIGNAL: BUY on a limit into the OTE at 523.75 (not at market)
+Bias is bullish while price holds above 515.00; invalidated on a daily close below it.
+
+HINDCOPPER took the sell-side liquidity under the 08-10 low at 522.00 on 08-14, trading down to 515.00
+before closing the session at 529.05 -- back above the swept level. That is a stop raid into discount and
+a reclaim, not a breakdown. The dip also rebalanced into the unfilled daily FVG at 504.30-525.55 left by
+the 08-05 expansion, so the grab occurred inside a valid PD array.
+
+With the raid done, the draw is back toward the 569.90/570.50 equal highs. Entry 523.75 at the top of the
+510.93-523.75 OTE, which overlaps the 515.15-530.45 bullish 1H order block. Stop 512.00 below both the
+sweep low and the order block. TP1 552.00, TP2 570.50. R:R 2.40 on TP1.
+
+Why a limit and not market: at Friday's 529.05 close the same stop gives R:R 1.35, below the 1:2 floor.
+The trade only qualifies on the retrace, so entering here would be paying up for a worse trade.
+
+Caveats: 08-14 printed a lower low than 08-10 before reclaiming, so the higher-low sequence is bruised
+rather than clean -- hence Medium, not High. Volume has run 8-37m against a 2-4m base for eight sessions,
+which reads as a sustained commodity theme rather than a one-day news spike, but an elevated-volume name
+can reverse quickly. NSE is shut; this is Friday's close and triggers Monday. A gap-up leaves it unfilled,
+a gap below 512.00 skips the stop.
+
+This is a technical analysis educational exercise based on ICT concepts, not financial advice. Markets
+carry real risk of loss — verify independently and manage position sizing/risk before trading.

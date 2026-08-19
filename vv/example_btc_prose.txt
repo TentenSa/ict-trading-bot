@@ -1,0 +1,3 @@
+SIGNAL: NO TRADE (wait for confirmation)
+Bias is bearish while price holds below the 65,401 equal-highs; invalidated on a daily close back above that level.
+This is a technical analysis educational exercise based on ICT concepts, not financial advice. Markets carry real risk of loss — verify independently and manage position sizing/risk before trading.

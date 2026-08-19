@@ -1,0 +1,59 @@
+📊 TICKER: PAGEIND.NS           🕐 Timeframe analyzed: Daily → 1H → 15M
+📅 As of: 2026-08-17 07:00 UTC (12:30 IST, live session)
+
+1. HTF BIAS: Bearish
+   - Structure: 40270.00 (10 Aug) → 36410.00 (13 Aug), ~9.5% in four sessions, closing
+     through the 39250.00 and 39485.00 July lows — break of structure down. Lower highs
+     41590.00 → 40270.00, lower lows 39750.00 → 36410.00. Volume on 13 and 14 Aug was
+     121k and 119k shares against a 10–25k norm: this is an event repricing, and that
+     matters for how the level is traded (see CONFIDENCE).
+   - Key liquidity: BSL @ 40270.00 (10 Aug, last point of supply).
+     SSL @ 36620.00 (14 Aug) and SSL @ 36410.00 (13 Aug) — neither has been taken.
+
+2. NARRATIVE (Draw on Liquidity)
+   Today's +2.4% bounce off 36505.00 is a retracement inside a broken market, not a
+   reversal — nothing on the daily has been reclaimed. Price is being drawn up into the
+   inefficiency the breakdown left: an unfilled 1H bearish FVG at 38625.00–39100.00,
+   sitting under the daily bearish FVG at 38795.00–39735.00 and inside the 62–79%
+   retrace of the whole leg. Once that imbalance is rebalanced, the draw is the untaken
+   sell-side pool at 36620.00 / 36410.00.
+
+3. KEY ZONES
+   - Order Block: bearish, 39150.00–39295.00 (1H — the 10 Aug 06:45 up candle before
+     the 39100.00 breakdown)
+   - FVG / Imbalance: 38625.00–39100.00 (1H, unfilled); daily bearish FVG
+     38795.00–39735.00 also unfilled directly above it
+   - Premium/Discount: price at 37645.00 is in DISCOUNT of the 36410.00–40270.00
+     dealing range (equilibrium 38340.00) — selling here is selling into a discount,
+     which is why the entry is a limit well above
+   - OTE zone: 38803.20–39459.40 (62–79% retrace of 40270.00 → 36410.00)
+
+4. SIGNAL: 🔴 SELL (resting limit — not live at market)
+   - Entry: 38800.00 (62% OTE ∩ upper half of the 1H bearish FVG)
+   - Stop Loss: 39310.00 (above the 39295.00 bearish order block high — structural)
+   - Take Profit(s): TP1 36620.00 (14 Aug low), TP2 36410.00 (13 Aug low, the SSL)
+   - Risk:Reward: 4.27 to TP1, 4.63 to TP2 (risk 510.00 points, 1.31%)
+
+5. INVALIDATION
+   A 1H close above 39295.00 puts price through the order block and back inside the
+   pre-breakdown range. Above 39735.00 the daily FVG is fully rebalanced and the leg is
+   void. Entry sits 3.1% above spot: if the counter-rally stalls below 38625.00 there
+   is no trade, and selling at 37645.00 here is not part of this plan.
+
+6. CONFIDENCE: Medium
+   The geometry is the best of the three — bearish HTF, an untouched SSL draw, and a
+   1H FVG, daily FVG, OTE and order block all stacked in the same 38800–39300 band, for
+   4.27R. It is held at Medium, not High, for three reasons: the breakdown was
+   event-driven on 5–10x volume, so the next headline can reprice it in either
+   direction regardless of structure; the entry needs a further 3.1% counter-rally to
+   exist at all; and the option book is the thinnest of the three names (lot 20, put
+   spreads 1.8–3.9% of mid), so a correct directional call still gives back real money
+   at the touch.
+
+7. TRACK RECORD (this ticker)
+   Insufficient history for PAGEIND.NS: 0 resolved trade(s) logged (need 5), 0 still
+   open. Not used to adjust this signal.
+
+This is a technical analysis educational exercise based on ICT concepts, not financial advice.
+Markets carry real risk of loss — verify independently and manage position sizing/risk before
+trading.

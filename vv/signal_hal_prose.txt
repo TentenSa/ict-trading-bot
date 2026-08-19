@@ -1,0 +1,54 @@
+📊 TICKER: HAL.NS               🕐 Timeframe analyzed: Daily → 1H → 15M
+📅 As of: 2026-08-17 07:00 UTC (12:30 IST, live session)
+
+1. HTF BIAS: Bullish (established, eight sessions old)
+   - Structure: higher lows 4603.30 → 4803.40 → 4924.20, higher highs 4975.00 →
+     5055.00 → 5149.90. The 06 Aug session gapped +4.8% on 4.80m shares against a
+     ~600k norm and price has not given it back. Today's close through 5055.00 is a
+     break of structure with the trend, and 5149.90 is a six-month high.
+   - Key liquidity: BSL @ 5149.90 (today's high, the draw), BSL @ 5055.00 (12 Aug,
+     already taken — spent). SSL @ 4924.20 (14 Aug), SSL @ 4803.40 (12 Aug).
+
+2. NARRATIVE (Draw on Liquidity)
+   There is no meaningful sell-side pool above and nothing overhead to reject from —
+   price is at the top of its own range with buy stops resting above 5149.90. The
+   14 Aug expansion left a 1H fair value gap at 4970.80–5007.00 that has never been
+   rebalanced, and that gap sits inside the 62–79% retracement of the 4924.20 → 5149.90
+   leg. Delivery back into that inefficiency before the next expansion is the highest-
+   probability sequence; buying 5082 in the premium half of the range is not.
+
+3. KEY ZONES
+   - Order Block: bullish, 4950.10–4970.80 (1H — the 14 Aug 05:45 down candle that
+     preceded the 06:45 expansion)
+   - FVG / Imbalance: 4970.80–5007.00 (1H, unfilled)
+   - Premium/Discount: price at ~5082 is in PREMIUM of the 4924.20–5149.90 dealing
+     range (equilibrium 5037.05)
+   - OTE zone: 4971.60–5009.97 (62–79% retrace of 4924.20 → 5149.90)
+
+4. SIGNAL: 🟢 BUY (resting limit — not live at market)
+   - Entry: 4990.00 (OTE ∩ 1H FVG, sitting on the order block)
+   - Stop Loss: 4915.00 (below the 4950.10 order block low and below the 4924.20
+     higher low that originated the leg)
+   - Take Profit(s): TP1 5149.90 (today's high / BSL). No TP2 — 5149.90 is the
+     six-month high and there is no mapped liquidity above it. Beyond TP1 the
+     position is trailed, not targeted; quoting a number there would be invented.
+   - Risk:Reward: 2.13 to TP1 (risk 75.00 points, 1.50%)
+
+5. INVALIDATION
+   A 1H close below 4950.10 puts price under the order block that produced the 14 Aug
+   expansion. A close below 4924.20 breaks the higher-low sequence and ends the
+   continuation thesis. If price never retraces to 4990.00 there is no trade.
+
+6. CONFIDENCE: Medium
+   HTF and LTF are aligned and the PD array is clean (1H FVG, OB and OTE all stack at
+   4950–5010). Held at Medium for two reasons: the move is already eight sessions and
+   ~10% old, so this is a late-stage continuation rather than a fresh reversal, and
+   TP1 is the only mapped target — there is no second liquidity pool to run to.
+
+7. TRACK RECORD (this ticker)
+   Insufficient history for HAL.NS: 0 resolved trade(s) logged (need 5), 0 still open.
+   Not used to adjust this signal.
+
+This is a technical analysis educational exercise based on ICT concepts, not financial advice.
+Markets carry real risk of loss — verify independently and manage position sizing/risk before
+trading.

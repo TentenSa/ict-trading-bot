@@ -1,0 +1,43 @@
+{
+  "ticker": "HAL.NS",
+  "as_of": "2026-08-17T07:00:00Z",
+  "timeframe_analyzed": "Daily -> 1H -> 15M",
+  "htf_bias": "Bullish",
+  "liquidity": {
+    "bsl": [
+      {"label": "17 Aug session high — six-month high, the draw", "price": 5149.9},
+      {"label": "12 Aug swing high, already broken (spent liquidity)", "price": 5055.0}
+    ],
+    "ssl": [
+      {"label": "14 Aug swing low, origin of the current leg", "price": 4924.2},
+      {"label": "12 Aug swing low, last higher low on the daily", "price": 4803.4}
+    ]
+  },
+  "narrative": "HAL has been in clean daily expansion since the 06 Aug gap (+4.8% on 4.8m shares against a ~600k norm), printing higher highs and higher lows: 4603.30 -> 4803.40 -> 4924.20 on the low side, 4975.00 -> 5055.00 -> 5149.90 on the high side. Today's session broke the 5055.00 swing high — a break of structure with the trend — and tagged 5149.90 before easing back to 5082. There is no resting sell-side pool of consequence above; the draw is buy-side, above today's high. The 14 Aug expansion left an unfilled 1H fair value gap at 4970.80-5007.00 that has not been rebalanced, and it sits exactly inside the 62-79% retracement of the 4924.20 -> 5149.90 leg. That overlap is the entry, not the 5082 print.",
+  "zones": {
+    "order_block": {"direction": "bullish", "low": 4950.1, "high": 4970.8, "timeframe": "1h"},
+    "fvg": {"low": 4970.8, "high": 5007.0, "timeframe": "1h"},
+    "dealing_range": {"low": 4924.2, "high": 5149.9},
+    "equilibrium": 5037.05,
+    "premium_discount": "premium",
+    "ote": {"low": 4971.6, "high": 5009.97, "swing_high": 5149.9, "swing_low": 4924.2}
+  },
+  "signal": "BUY",
+  "entry": 4990.0,
+  "stop_loss": 4915.0,
+  "take_profits": [5149.9],
+  "risk_reward": 2.13,
+  "invalidation": "A 1H close below 4950.10 puts price under the order block that produced the 14 Aug expansion; a close below 4924.20 breaks the higher-low sequence and ends the continuation thesis. Entry is a resting limit — if price never retraces to 4990.00 there is no trade. No TP2 is quoted: 5149.90 is the six-month high and there is no mapped liquidity above it, so anything beyond TP1 is trailed, not targeted.",
+  "confidence": "Medium",
+  "resolution_interval": "15m",
+  "horizon_hours": 168,
+  "round_trip_cost_pct": 0.001,
+  "track_record": {
+    "note": "Insufficient history for HAL.NS: 0 resolved trade(s) logged (need 5), 0 still open. Not used to adjust this signal.",
+    "sufficient_history": false,
+    "wins": 0,
+    "losses": 0,
+    "timeouts": 0,
+    "decisive_resolved": 0
+  }
+}

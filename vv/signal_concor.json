@@ -1,0 +1,50 @@
+{
+  "ticker": "CONCOR.NS",
+  "as_of": "2026-08-14T10:00:00Z",
+  "timeframe_analyzed": "Daily -> 1H",
+  "htf_bias": "Bullish",
+  "liquidity": {
+    "bsl": [
+      {"label": "08-14 sweep high (BSL raid)", "price": 543.7},
+      {"label": "08-03 swing high (equal-high cluster)", "price": 531.7}
+    ],
+    "ssl": [
+      {"label": "07-28 low / top of unfilled bullish FVG", "price": 511.7},
+      {"label": "08-10 swing low (last HL)", "price": 498.25}
+    ]
+  },
+  "narrative": "Price is being drawn back down toward the 511.70-498.25 sell-side pool. The 08-14 session ran 543.70, taking out the 531.70 equal-high cluster and the 08-13 high, then reversed the entire day to close at 527.00 -- the low of the bar and back below every level it had just swept. That is a buy-side liquidity raid followed by distribution, not a breakout. The unfilled bullish FVG at 484.20-511.70 from the 07-27 repricing is the deeper magnet beneath. Countering this: daily structure since 07-27 is still a clean series of higher highs and higher lows with no CHoCH, so the draw lower is a correction inside an uptrend rather than a reversal of it.",
+  "zones": {
+    "order_block": {"direction": "bearish", "low": 530.7, "high": 534.95, "timeframe": "1h"},
+    "fvg": {"low": 529.2, "high": 532.4, "timeframe": "1h"},
+    "dealing_range": {"low": 498.25, "high": 543.7},
+    "equilibrium": 520.98,
+    "premium_discount": "premium",
+    "ote": {"low": 537.35, "high": 540.19, "swing_high": 543.7, "swing_low": 527.0}
+  },
+  "signal": "NO_TRADE",
+  "entry": null,
+  "stop_loss": null,
+  "take_profits": [],
+  "risk_reward": null,
+  "invalidation": "The bearish case dies on a 1H close back above 543.70, which would confirm the 08-14 spike as a genuine break rather than a raid and re-open the upside. The bullish HTF structure dies on a daily close below 498.25 (the last higher low), which would print the first real CHoCH since 07-27 and convert this from a counter-trend short into a with-trend one.",
+  "confidence": "Low",
+  "resolution_interval": "5m",
+  "horizon_hours": 240,
+  "round_trip_cost_pct": 0.001,
+  "track_record": {
+    "note": "Insufficient history for CONCOR.NS: 0 resolved trade(s) logged (need 5), 0 still open. Not used to adjust this signal.",
+    "sufficient_history": false,
+    "wins": 0,
+    "losses": 0,
+    "timeouts": 0,
+    "decisive_resolved": 0
+  },
+  "hypothetical": {
+    "note": "Trade that WOULD be taken if price retraces into the OTE. Counter-trend against bullish daily structure, hence Low confidence and a first target that stops at the near pool rather than running for the FVG.",
+    "bias_direction": "bearish",
+    "entry": 537.35,
+    "stop_loss": 546.0,
+    "take_profit": 511.7
+  }
+}

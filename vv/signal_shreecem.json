@@ -1,0 +1,43 @@
+{
+  "ticker": "SHREECEM.NS",
+  "as_of": "2026-08-14T10:00:00Z",
+  "timeframe_analyzed": "Daily -> 1H",
+  "htf_bias": "Bearish",
+  "liquidity": {
+    "bsl": [
+      {"label": "08-12/08-13 high cluster (nearest resting BSL)", "price": 25570.0},
+      {"label": "08-05 swing high (origin of the decline)", "price": 27550.0}
+    ],
+    "ssl": [
+      {"label": "06-23 swing low, swept 08-14 and marginally reclaimed", "price": 24765.0},
+      {"label": "06-10 swing low — next real pool below the void", "price": 23290.0}
+    ]
+  },
+  "narrative": "Eight consecutive sessions of lower highs and lower lows off the 08-05 high at 27550.00, with the 07-31 break under the 07-24 low at 26425.00 marking the change of character. On 08-14 price took the 06-23 low at 24765.00, trading to 24600.00, but the close at 24795.00 is only 0.12% back above the swept level -- a technical reclaim with no conviction behind it. The draw is lower: beneath 24600.00 there is no detected swing low until 23290.00, so a break there runs into a liquidity void rather than a shelf of support. The trade is to sell the retrace rather than the break, because the 25150.00-25570.00 bearish order block sits directly above and overlaps the OTE.",
+  "zones": {
+    "order_block": {"direction": "bearish", "low": 25150.0, "high": 25570.0, "timeframe": "1d"},
+    "fvg": {"low": 26355.0, "high": 26730.0, "timeframe": "1d"},
+    "dealing_range": {"low": 24600.0, "high": 25575.0},
+    "equilibrium": 25087.5,
+    "premium_discount": "discount",
+    "ote": {"low": 25204.5, "high": 25370.25, "swing_high": 25575.0, "swing_low": 24600.0}
+  },
+  "signal": "SELL",
+  "entry": 25370.25,
+  "stop_loss": 25700.0,
+  "take_profits": [24600.0, 23290.0],
+  "risk_reward": 2.34,
+  "invalidation": "A daily close above 25700.00 puts price back inside the 08-12/08-13 highs and above the bearish order block, which would make the 08-14 sweep of 24765.00 a genuine reversal rather than a failed reclaim. The thesis is already weakening on any close above 25575.00.",
+  "confidence": "Medium",
+  "resolution_interval": "5m",
+  "horizon_hours": 240,
+  "round_trip_cost_pct": 0.001,
+  "track_record": {
+    "note": "Insufficient history for SHREECEM.NS: 0 resolved trade(s) logged (need 5), 0 still open. Not used to adjust this signal.",
+    "sufficient_history": false,
+    "wins": 0,
+    "losses": 0,
+    "timeouts": 0,
+    "decisive_resolved": 0
+  }
+}

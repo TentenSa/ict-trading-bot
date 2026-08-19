@@ -1,0 +1,5 @@
+SIGNAL: NO TRADE at market (wait for the retrace trigger)
+Bias is bearish while price holds below 182.70; invalidated on a daily close back above that level.
+Price has already swept 179.00 (to 182.70) and run down to 171.64 -- entering short here is chasing, below the PD array. The trade triggers on a retrace up into the 177.78-179.98 OTE zone, stop 183.50 above the 182.70 sweep extreme, targets 166.70 (FVG completion) then 160.00.
+Counter-trend caveat: the CHoCH close below 172.00 was by only 0.21%, which is weak confirmation. The prior daily trend was up.
+This is a technical analysis educational exercise based on ICT concepts, not financial advice. Markets carry real risk of loss — verify independently and manage position sizing/risk before trading.

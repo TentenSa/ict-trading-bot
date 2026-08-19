@@ -1,0 +1,46 @@
+{
+  "ticker": "APOLLOHOSP.NS",
+  "as_of": "2026-08-14T10:00:00Z",
+  "timeframe_analyzed": "Daily -> 1H",
+  "htf_bias": "Bullish",
+  "liquidity": {
+    "bsl": [
+      {"label": "08-11 swing high", "price": 8990.00},
+      {"label": "08-04 swing high / range top", "price": 9050.00}
+    ],
+    "ssl": [
+      {"label": "08-04 swing low (swept)", "price": 8760.00},
+      {"label": "08-12 swing low (range bottom)", "price": 8507.50}
+    ]
+  },
+  "narrative": "Price sold off from 9050 through the 8760 and 8744 swing lows into 8507.50 on 08-12, taking sell-side liquidity. On 08-14 it reversed hard: opened 8615, traded down to 8588.50, then ran to 8925 and closed at 8920.50 -- 99% of the bar's range -- on 1.28m shares against a 439k ten-day average. That close broke and held above the 08-13 swing high at 8786.00, a change of character. The draw on liquidity is now the buy-side pool at 8990.00 and the 9050.00 range top. Price is already in premium at 76% of the range, so buying at market is chasing the reversal bar; the trade is the retrace into the 8659-8716 OTE, which overlaps the 08-13 bullish order block.",
+  "zones": {
+    "order_block": {"direction": "bullish", "low": 8600.00, "high": 8740.50, "timeframe": "1d"},
+    "dealing_range": {"low": 8507.50, "high": 9050.00},
+    "equilibrium": 8778.75,
+    "premium_discount": "premium",
+    "ote": {"low": 8659.17, "high": 8716.37, "swing_high": 8925.00, "swing_low": 8588.50}
+  },
+  "signal": "NO_TRADE",
+  "entry": null,
+  "stop_loss": null,
+  "take_profits": [],
+  "risk_reward": null,
+  "invalidation": "A daily close back below 8588.50 (the low of the 08-14 reversal bar) negates the reversal and re-opens the downtrend toward 8507.50.",
+  "confidence": "Medium",
+  "resolution_interval": "5m",
+  "horizon_hours": 240,
+  "round_trip_cost_pct": 0.001,
+  "track_record": {
+    "note": "Insufficient history for APOLLOHOSP.NS: 0 resolved trade(s) logged (need 5), 0 still open. Not used to adjust this signal.",
+    "sufficient_history": false,
+    "wins": 0, "losses": 0, "timeouts": 0, "decisive_resolved": 0
+  },
+  "hypothetical": {
+    "note": "Hypothetical BUY on a retrace into the OTE / bullish order block overlap. Not live at market -- price closed at the high of the reversal bar in premium, and buying there is chasing.",
+    "bias_direction": "bullish",
+    "entry": 8690.00,
+    "stop_loss": 8570.00,
+    "take_profit": 8990.00
+  }
+}

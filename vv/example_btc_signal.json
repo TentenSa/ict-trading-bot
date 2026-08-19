@@ -1,0 +1,39 @@
+{
+  "ticker": "BTC-USD",
+  "as_of": "2026-08-15T17:13:40Z",
+  "timeframe_analyzed": "Daily -> 1H",
+  "htf_bias": "Bearish",
+  "liquidity": {
+    "bsl": [
+      {"label": "eq highs 08-07/08-09", "price": 65401.69},
+      {"label": "07-21 swing high", "price": 66910.06}
+    ],
+    "ssl": [
+      {"label": "eq lows 08-01/08-03", "price": 62226.58},
+      {"label": "07-08 swing low", "price": 61492.65}
+    ]
+  },
+  "narrative": "Price swept into the 62-79% OTE retracement zone on 08-09, got rejected, and has printed consecutive lower highs since. Draw on liquidity is toward the SSL pool below 62226.58, with 61492.65 as the deeper magnet.",
+  "zones": {
+    "order_block": {"direction": "bearish", "low": 63395.02, "high": 63527.36, "timeframe": "1h"},
+    "fvg": {"low": 62725.49, "high": 62894.20, "timeframe": "1h"},
+    "dealing_range": {"low": 62226.58, "high": 65401.69},
+    "equilibrium": 63814.14,
+    "premium_discount": "discount",
+    "ote": {"low": 65130.34, "high": 65926.53, "swing_high": 66910.06, "swing_low": 62226.58}
+  },
+  "signal": "NO_TRADE",
+  "entry": null,
+  "stop_loss": null,
+  "take_profits": [],
+  "risk_reward": null,
+  "invalidation": "Daily close back above 65401.69 (recent equal-highs BSL) invalidates the bearish bias.",
+  "confidence": "Medium",
+  "hypothetical": {
+    "note": "Hypothetical SELL if price rallies back into the bearish 1H order block and rejects.",
+    "bias_direction": "bearish",
+    "entry": 63461.19,
+    "stop_loss": 63565.00,
+    "take_profit": 62226.58
+  }
+}

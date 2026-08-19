@@ -1,0 +1,38 @@
+{
+  "ticker": "AAPL",
+  "as_of": "2026-08-15T00:00:00Z",
+  "timeframe_analyzed": "Daily -> 1H",
+  "htf_bias": "Bearish",
+  "liquidity": {
+    "bsl": [
+      {"label": "08-06 swing high", "price": 316.29},
+      {"label": "07-29 pre-gap major high", "price": 344.57}
+    ],
+    "ssl": [
+      {"label": "eq lows 07-31/08-12", "price": 300.00}
+    ]
+  },
+  "narrative": "AAPL gapped down hard from the 344.57 high on 07-29, rallied to a lower high at 316.29 on 08-06, then sold off into the 300.00 equal-lows pool on 08-12 and bounced. Price is now consolidating below equilibrium with HTF bias still bearish; a rally into the 306.87-308.23 order block would be the next place to look for continuation lower toward the 300.00 SSL.",
+  "zones": {
+    "order_block": {"direction": "bearish", "low": 306.87, "high": 308.23, "timeframe": "1h"},
+    "fvg": {"low": 305.20, "high": 305.70, "timeframe": "1h"},
+    "dealing_range": {"low": 300.00, "high": 316.29},
+    "equilibrium": 308.15,
+    "premium_discount": "discount",
+    "ote": {"low": 310.10, "high": 312.87, "swing_high": 316.29, "swing_low": 300.00}
+  },
+  "signal": "NO_TRADE",
+  "entry": null,
+  "stop_loss": null,
+  "take_profits": [],
+  "risk_reward": null,
+  "invalidation": "Daily close back above 316.29 invalidates the bearish bias.",
+  "confidence": "Medium",
+  "hypothetical": {
+    "note": "Hypothetical SELL if price rallies back into the bearish 1H order block and rejects.",
+    "bias_direction": "bearish",
+    "entry": 307.55,
+    "stop_loss": 308.35,
+    "take_profit": 300.00
+  }
+}

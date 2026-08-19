@@ -1,0 +1,26 @@
+SIGNAL: SELL on a limit into the OTE at 25370.25 (not at market)
+Bearish while price holds below 25700.00; invalidated on a daily close above it.
+
+SHREECEM has printed eight straight sessions of lower highs and lower lows off the 08-05 high at
+27550.00, with the 07-31 break under the 07-24 low at 26425.00 marking the change of character. On 08-14
+price took the 06-23 low at 24765.00, trading to 24600.00, and closed at 24795.00 -- only 0.12% back above
+the level it swept. That is a reclaim on paper with nothing behind it.
+
+The draw is lower. Below 24600.00 there is no detected swing low until 23290.00, so a break runs into a
+void rather than a shelf. The trade is to sell the retrace, not the break: the 25150.00-25570.00 daily
+bearish order block sits directly above price and overlaps the 25204.50-25370.25 OTE. Entry 25370.25 at
+the top of that overlap, stop 25700.00 above both the order block and the 08-12/08-13 high cluster,
+TP1 24600.00, TP2 23290.00. R:R 2.34 on TP1.
+
+Why a limit and not market: shorting Friday's 24795.00 close with the same structural stop gives R:R 0.22.
+The edge is entirely in the entry price, so chasing the break here would be taking the same idea at a
+price where it no longer works.
+
+Caveats: the 08-14 sweep of 24765.00 is a genuine counter-signal -- a major June low was taken and price
+did close back above it -- so this is selling into a bounce that could keep going; that is why the entry
+sits above price and not at it, and why confidence is Medium. Volume is thin in absolute terms
+(10-50k shares/day), so check option-chain depth before sizing. NSE is shut; this is Friday's close and
+triggers Monday. A gap-down leaves it unfilled rather than triggering it.
+
+This is a technical analysis educational exercise based on ICT concepts, not financial advice. Markets
+carry real risk of loss — verify independently and manage position sizing/risk before trading.

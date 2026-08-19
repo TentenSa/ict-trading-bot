@@ -1,0 +1,50 @@
+{
+  "ticker": "MCX.NS",
+  "as_of": "2026-08-17T04:45:00Z",
+  "timeframe_analyzed": "Daily -> 1H -> 15M",
+  "htf_bias": "Ranging",
+  "liquidity": {
+    "bsl": [
+      {"label": "13-Aug expansion high / 30-day range high", "price": 3023.7},
+      {"label": "prior daily swing high just overhead", "price": 2942.1}
+    ],
+    "ssl": [
+      {"label": "confirmed daily swing low - 11-Aug pullback", "price": 2729.0},
+      {"label": "origin of the August expansion leg (10-Aug)", "price": 2603.2}
+    ]
+  },
+  "narrative": "MCX ran 2603.20 -> 3023.70 between 10-Aug and 13-Aug, a 16% expansion. Since that high it has printed three consecutive lower highs (3023.70 -> 2977.40 -> 2951.00) and three lower lows (2929.00 -> 2911.50 -> 2892.10), so the last three sessions are a clean short-term downtrend inside a much larger uptrend. This morning price swept 2892.10, below Friday's 2911.50 low, and reclaimed hard to 2945 within the hour, leaving a 15M bullish imbalance at 2929.00-2932.00 and an order block at 2912.00-2929.00. That is a textbook sell-side raid and reclaim - but the reclaim is one hour old on an incomplete daily bar, the swept low is not yet a confirmed daily swing, and NIFTY is in its own daily downtrend (lower highs since 10-Aug, 24282 now). Directional bias is therefore genuinely two-sided and the draw is unresolved.",
+  "zones": {
+    "order_block": {"direction": "bullish", "low": 2912.0, "high": 2929.0, "timeframe": "15m"},
+    "fvg": {"low": 2929.0, "high": 2932.0, "timeframe": "15m"},
+    "dealing_range": {"low": 2892.1, "high": 2951.0},
+    "equilibrium": 2921.55,
+    "premium_discount": "premium",
+    "ote": {"low": 2904.47, "high": 2914.48, "swing_high": 2951.0, "swing_low": 2892.1}
+  },
+  "signal": "NO_TRADE",
+  "entry": 2910.0,
+  "stop_loss": 2880.0,
+  "take_profits": [2976.7, 3023.7],
+  "risk_reward": 2.22,
+  "invalidation": "The long thesis requires price to hold above 2892.10 and pull back into 2904.47-2914.48 rather than running away from it. A 15M close back below 2892.10 voids the reclaim entirely and turns the morning move into a failed bounce inside the three-day downtrend. Equally, an impulsive move straight to 2977 without a retracement means the entry never triggers - stand down rather than chase.",
+  "confidence": "Low",
+  "resolution_interval": "15m",
+  "horizon_hours": 72,
+  "round_trip_cost_pct": 0.001,
+  "track_record": {
+    "note": "Insufficient history for MCX.NS: 0 resolved trade(s) logged (need 5), 0 still open. Not used to adjust this signal.",
+    "sufficient_history": false,
+    "wins": 0,
+    "losses": 0,
+    "timeouts": 0,
+    "decisive_resolved": 0
+  },
+  "hypothetical": {
+    "note": "The trade that WOULD be taken if price retraces into the OTE and holds 2892.10 - used by the backtester to check whether standing aside was correct.",
+    "bias_direction": "bullish",
+    "entry": 2910.0,
+    "stop_loss": 2880.0,
+    "take_profit": 2976.7
+  }
+}
