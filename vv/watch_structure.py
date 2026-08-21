@@ -25,29 +25,14 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from fetch_data import fetch_ohlc, detect_swings
+from fetch_data import fetch_ohlc, closed_bars, market_now, exchange_now, detect_swings
 
 IST = timezone(timedelta(hours=5, minutes=30))
 BAR = timedelta(minutes=5)
 
 
 def say(msg):
-    print(f"[{datetime.now(timezone.utc).astimezone(IST):%H:%M IST}] {msg}", flush=True)
-
-
-def closed_bars(ticker):
-    now = datetime.now(timezone.utc)
-    for rng, iv in (("1d", "5m"), ("5d", "5m")):
-        try:
-            c, _ = fetch_ohlc(ticker, rng, iv)
-        except Exception:
-            continue
-        today = datetime.now(IST).date()
-        bars = [b for b in c if b["dt"].astimezone(IST).date() == today
-                and b["dt"] + BAR <= now]
-        if bars:
-            return bars
-    return []
+    print(f"[{exchange_now().astimezone(IST):%H:%M IST}] {msg}", flush=True)
 
 
 def main():
@@ -61,26 +46,31 @@ def main():
     a = ap.parse_args()
 
     hh, mm = (int(x) for x in a.until.split(":"))
-    now = datetime.now(timezone.utc)
+    now = exchange_now()
     deadline = now.replace(hour=hh, minute=mm, second=0, microsecond=0)
     if deadline <= now:
         deadline += timedelta(days=1)
+    # regularMarketTime freezes at the close, so exchange_now() can stall just
+    # short of a deadline set at/after it. monotonic elapsed time cannot stall
+    # and cannot be moved by a clock jump, so it backstops the exit.
+    started = time.monotonic()
+    max_run = (deadline - now).total_seconds() + 1800
 
     ref = a.ref_low
     word = "LOWER HIGH" if a.up else "HIGHER LOW"
     say(f"watching {a.ticker} 5M for a confirmed {word} vs {ref:.2f} until {a.until}Z — "
         f"silent unless the leg loses impulse (or the reference ratchets)")
 
-    last_ok = datetime.now(timezone.utc)
+    last_ok = time.monotonic()
     stale_warned = False
     while True:
-        if datetime.now(timezone.utc) >= deadline:
+        if exchange_now() >= deadline or time.monotonic() - started > max_run:
             say(f"SESSION CLOSE — no {word} confirmed. Leg stayed impulsive; reference {ref:.2f}.")
             return
 
         bars = closed_bars(a.ticker)
         if not bars:
-            gap = (datetime.now(timezone.utc) - last_ok).total_seconds() / 60
+            gap = (time.monotonic() - last_ok) / 60
             if gap >= a.stale and not stale_warned:
                 stale_warned = True
                 say(f"!! FEED STALE — no closed {a.ticker} bar for {gap:.0f} min. "
@@ -88,7 +78,7 @@ def main():
             time.sleep(a.interval)
             continue
 
-        last_ok = datetime.now(timezone.utc)
+        last_ok = time.monotonic()
         if stale_warned:
             stale_warned = False
             say("feed recovered — resuming structure watch.")

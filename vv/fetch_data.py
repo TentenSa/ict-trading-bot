@@ -1,7 +1,7 @@
 """Shared Yahoo Finance chart-API fetch helper used by verify_signal.py and backtest.py."""
 import json
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 BASE_URL = "https://query1.finance.yahoo.com/v8/finance/chart/{ticker}"
 HEADERS = {"User-Agent": "Mozilla/5.0"}
@@ -84,3 +84,77 @@ def detect_swings(candles, lookback=2):
         if candles[i]["low"] == min(c["low"] for c in window):
             swing_lows.append(candles[i]["low"])
     return swing_highs, swing_lows
+
+
+IST = timezone(timedelta(hours=5, minutes=30))
+
+# exchange_time - host_time, re-measured on every market_now() call. Lets code
+# with no meta in hand (log timestamps, deadline checks) still ask the exchange
+# clock instead of the host's.
+_SKEW = timedelta(0)
+
+
+def exchange_now():
+    """Best estimate of exchange time between fetches: the host clock corrected
+    by the offset last measured against the feed.
+
+    Use this for WALL-CLOCK decisions (is it past the cutoff, what time to stamp
+    on a line). Do NOT use it to measure DURATIONS -- regularMarketTime freezes
+    when the market closes, so differences taken from it stall at zero and a
+    staleness detector built on it would never fire. Durations are immune to a
+    constant offset anyway, so time.monotonic() is the right tool there.
+    """
+    return datetime.now(timezone.utc) + _SKEW
+
+
+def market_now(meta, candles=None, bar=None):
+    """Exchange wall-clock "now" as an aware UTC datetime.
+
+    Taken from the feed's own regularMarketTime, never from the host clock. The
+    host clock is not a safe source of truth for bar-close decisions: this VM has
+    already been observed sitting 7 hours behind the exchange, which made every
+    closed-bar filter discard the whole session and alert nothing -- silently,
+    because an empty bar list is indistinguishable from a quiet market. The feed
+    timestamps the data it serves, so it is the correct clock for judging it.
+
+    Outside market hours regularMarketTime freezes at the last trade, which is
+    the right answer here: it means "every bar of that session has closed".
+
+    Falls back to the newest candle's close time rather than to datetime.now(),
+    so a feed missing the field degrades to a clock-free answer instead of
+    quietly reintroducing the bug this function exists to prevent.
+    """
+    global _SKEW
+    t = (meta or {}).get("regularMarketTime")
+    if t:
+        now = datetime.fromtimestamp(t, timezone.utc)
+        _SKEW = now - datetime.now(timezone.utc)
+        return now
+    if candles:
+        return max(c["dt"] for c in candles) + (bar or timedelta(0))
+    raise ValueError("no regularMarketTime in meta and no candles to fall back on")
+
+
+def closed_bars(ticker, interval="5m"):
+    """The current session's bars, excluding any bar still printing.
+
+    A wick through a level is not a close through it, so an in-progress bar must
+    never be judged -- that is the whole reason this filter exists.
+    """
+    bar = timedelta(minutes=int(interval.rstrip("m")))
+    for rng in ("1d", "5d"):
+        try:
+            c, meta = fetch_ohlc(ticker, rng, interval)
+        except Exception:
+            continue
+        if not c:
+            continue
+        now = market_now(meta, c, bar)
+        # Session date comes from the data, not the clock: before the open the
+        # feed's last-trade time still points at the previous session.
+        session = max(b["dt"].astimezone(IST).date() for b in c)
+        bars = [b for b in c
+                if b["dt"].astimezone(IST).date() == session and b["dt"] + bar <= now]
+        if bars:
+            return bars
+    return []

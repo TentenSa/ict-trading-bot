@@ -19,30 +19,14 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from fetch_data import fetch_ohlc
+from fetch_data import fetch_ohlc, closed_bars, market_now, exchange_now
 
 IST = timezone(timedelta(hours=5, minutes=30))
 BAR = timedelta(minutes=5)
 
 
 def say(msg):
-    print(f"[{datetime.now(timezone.utc).astimezone(IST):%H:%M IST}] {msg}", flush=True)
-
-
-def closed_bars(ticker):
-    """Today's 5m bars, excluding any bar that has not finished printing."""
-    now = datetime.now(timezone.utc)
-    for rng, iv in (("1d", "5m"), ("5d", "5m")):
-        try:
-            c, _ = fetch_ohlc(ticker, rng, iv)
-        except Exception:
-            continue
-        today = datetime.now(IST).date()
-        bars = [b for b in c if b["dt"].astimezone(IST).date() == today
-                and b["dt"] + BAR <= now]
-        if bars:
-            return bars
-    return []
+    print(f"[{exchange_now().astimezone(IST):%H:%M IST}] {msg}", flush=True)
 
 
 def main():
@@ -68,10 +52,15 @@ def main():
         raise SystemExit("no triggers given")
 
     hh, mm = (int(x) for x in a.until.split(":"))
-    now = datetime.now(timezone.utc)
+    now = exchange_now()
     deadline = now.replace(hour=hh, minute=mm, second=0, microsecond=0)
     if deadline <= now:
         deadline += timedelta(days=1)
+    # regularMarketTime freezes at the close, so exchange_now() can stall just
+    # short of a deadline set at/after it. monotonic elapsed time cannot stall
+    # and cannot be moved by a clock jump, so it backstops the exit.
+    started = time.monotonic()
+    max_run = (deadline - now).total_seconds() + 1800
 
     say(f"watching {a.ticker} for " +
         ", ".join(f"{lab} = 5M close {d} {lvl}" for d, lvl, lab in trigs) +
@@ -79,10 +68,10 @@ def main():
 
     warned = set()
     seen = None
-    last_ok = datetime.now(timezone.utc)
+    last_ok = time.monotonic()
     stale_warned = False
     while True:
-        if datetime.now(timezone.utc) >= deadline:
+        if exchange_now() >= deadline or time.monotonic() - started > max_run:
             say(f"SESSION CLOSE — no trigger fired. NO_TRADE stood. "
                 f"Last close {seen if seen is not None else 'n/a'}.")
             return
@@ -93,13 +82,13 @@ def main():
             # same output as a quiet market -- no lines at all -- so an alert
             # that only fires on the happy path would let a broken watcher look
             # like a calm session for hours.
-            gap_min = (datetime.now(timezone.utc) - last_ok).total_seconds() / 60
+            gap_min = (time.monotonic() - last_ok) / 60
             if gap_min >= a.stale and not stale_warned:
                 stale_warned = True
                 say(f"!! FEED STALE — no closed {a.ticker} bar retrieved for {gap_min:.0f} min. "
                     f"Triggers are NOT being evaluated. Silence right now means nothing.")
         else:
-            last_ok = datetime.now(timezone.utc)
+            last_ok = time.monotonic()
             if stale_warned:
                 stale_warned = False
                 say(f"feed recovered — resuming trigger evaluation on {a.ticker}.")

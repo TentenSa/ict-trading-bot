@@ -19,6 +19,23 @@ SWING_MATCH_TOLERANCE_PCT = 0.005  # 0.5% tolerance for BSL/SSL matching a real 
 MATH_TOLERANCE_PCT = 0.001       # 0.1% tolerance for arithmetic checks (rounding)
 AS_OF_MAX_STALENESS_HOURS = 48
 MIN_RR = 2.0
+# Index options traded INTRADAY clear at 1.5 instead (user rule, 2026-08-21).
+# Rationale: the honest stop on an index sits beyond a swept session extreme,
+# which is far from any entry that actually fills, so demanding 2.0 inside one
+# session rejects setups whose only flaw is that the index is large. This is
+# deliberately NOT global -- swing and single-stock signals keep 2.0.
+MIN_RR_INDEX_INTRADAY = 1.5
+INDEX_TICKERS = ("^NSEI", "^NSEBANK", "^BSESN")
+INTRADAY_MAX_HORIZON_H = 8
+
+
+def min_rr_for(signal):
+    """The R:R floor this signal must clear, and a label explaining which applies."""
+    ticker = (signal.get("ticker") or "").upper()
+    horizon = signal.get("horizon_hours") or 999
+    if ticker in INDEX_TICKERS and horizon <= INTRADAY_MAX_HORIZON_H:
+        return MIN_RR_INDEX_INTRADAY, "index intraday"
+    return MIN_RR, "default"
 # Round-trip cost may not eat more than this share of the stop distance. Beyond
 # it the stop sits inside normal noise on the resolution timeframe, so the
 # outcome says more about fees than about the setup.
@@ -341,10 +358,11 @@ def check_risk_reward(signal, findings):
         findings.add("8-rr", "SKIP",
                       f"{what} states no risk_reward to cross-check; computed {computed_rr:.2f}.")
 
-    threshold_ok = computed_rr >= MIN_RR
+    floor, why = min_rr_for(signal)
+    threshold_ok = computed_rr >= floor
     findings.add("8-rr-threshold", "PASS" if threshold_ok else "FAIL",
-                  f"computed R:R={computed_rr:.2f} for {what}, rule requires >= 1:{MIN_RR} "
-                  f"(if below, doc says flag as low-quality instead of a signal).")
+                  f"computed R:R={computed_rr:.2f} for {what}, rule requires >= 1:{floor} "
+                  f"[{why} floor] (if below, doc says flag as low-quality instead of a signal).")
 
 
 def check_stop_beyond_structure(signal, findings):

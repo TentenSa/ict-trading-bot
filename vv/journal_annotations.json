@@ -1,117 +1,189 @@
 {
-  "ids": {
-    "ALKEM.NS|2026-08-14T10:00:00Z": "T003",
-    "HAL.NS|2026-08-17T07:00:00Z": "T005",
-    "HINDCOPPER.NS|2026-08-14T10:00:00Z": "T001",
-    "OBEROIRLTY.NS|2026-08-17T07:00:00Z": "T004",
-    "PAGEIND.NS|2026-08-17T07:00:00Z": "T006",
-    "SHREECEM.NS|2026-08-14T10:00:00Z": "T002",
-    "^NSEI|2026-08-17T07:30:00Z": "T007",
-    "^NSEI|2026-08-17T08:38:00Z": "T008",
-    "^NSEI|2026-08-17T10:00:00Z": "T009",
-    "^NSEI|2026-08-18T05:29:00Z": "T010",
-    "^NSEI|2026-08-19T04:13:00Z": "T011"
+ "ids": {
+  "ALKEM.NS|2026-08-14T10:00:00Z": "T003",
+  "HAL.NS|2026-08-17T07:00:00Z": "T005",
+  "HINDCOPPER.NS|2026-08-14T10:00:00Z": "T001",
+  "OBEROIRLTY.NS|2026-08-17T07:00:00Z": "T004",
+  "PAGEIND.NS|2026-08-17T07:00:00Z": "T006",
+  "SHREECEM.NS|2026-08-14T10:00:00Z": "T002",
+  "^NSEBANK|2026-08-21T04:55:00Z": "T015",
+  "^NSEI|2026-08-17T07:30:00Z": "T007",
+  "^NSEI|2026-08-17T08:38:00Z": "T008",
+  "^NSEI|2026-08-17T10:00:00Z": "T009",
+  "^NSEI|2026-08-18T05:29:00Z": "T010",
+  "^NSEI|2026-08-19T04:13:00Z": "T011",
+  "^NSEI|2026-08-20T04:00:00Z": "T012",
+  "^NSEI|2026-08-20T04:50:00Z": "T013",
+  "^NSEI|2026-08-21T04:40:00Z": "T014"
+ },
+ "manual": {
+  "AAPL|2026-08-15T00:00:00Z": {
+   "AG": "NO_TRADE signal \u2014 hypothetical would-be trade, not taken. EXCLUDED from sample (cost_dominated_risk)."
   },
-  "manual": {
-    "AAPL|2026-08-15T00:00:00Z": {
-      "AG": "NO_TRADE signal \u2014 hypothetical would-be trade, not taken. EXCLUDED from sample (cost_dominated_risk)."
-    },
-    "ALKEM.NS|2026-08-14T10:00:00Z": {},
-    "APOLLOHOSP.NS|2026-08-14T10:00:00Z": {
-      "AG": "Reversal bar closed 99% of range on 2.9x volume; CHoCH above 8786. Taken as CASH EQUITY - every liquid Sep call gave option R:R below 1:2.",
-      "D": "Equity",
-      "F": "CHoCH + OTE"
-    },
-    "ASHOKLEY.NS|2026-08-14T10:00:00Z": {
-      "AG": "Swept 179.00 to 182.70, closed at bar low. CHoCH below 172.00 was only 0.21% - weak. Expressed via Sep-29 170 PE (option R:R 2.63:1).",
-      "D": "Option-PE",
-      "F": "Sweep + OB"
-    },
-    "BTC-USD|2026-08-15T17:13:40Z": {
-      "AF": "NO_TRADE signal \u2014 hypothetical would-be trade, not taken. EXCLUDED from sample (cost_dominated_risk)."
-    },
-    "CONCOR.NS|2026-08-14T10:00:00Z": {
-      "AG": "NO_TRADE signal \u2014 hypothetical would-be trade, not taken."
-    },
-    "HAL.NS|2026-08-17T07:00:00Z": {},
-    "HINDCOPPER.NS|2026-08-14T10:00:00Z": {},
-    "HYPE32196-USD|2026-08-15T20:15:55Z": {
-      "AF": "NO_TRADE signal \u2014 hypothetical would-be trade, not taken. EXCLUDED from sample (cost_dominated_risk)."
-    },
-    "OBEROIRLTY.NS|2026-08-17T07:00:00Z": {},
-    "PAGEIND.NS|2026-08-17T07:00:00Z": {},
-    "SHREECEM.NS|2026-08-14T10:00:00Z": {},
-    "^NSEI|2026-08-17T07:30:00Z": {
-      "AE": "N/A - never filled",
-      "AF": "Built on round_trip_cost_pct=0.001, a CASH-EQUITY figure. Measured index cost is 0.013-0.025% (vv/costs.py), so check 14 forced a 260-pt stop, which forced a 486-pt target, which pushed entry 0.90% from spot. Unreachable by construction. Superseded by T008.",
-      "AG": "Sep-29 24500 PE, lot 65, modelled debit ~219.51/unit. Entry 24560 never approached - session high 24359.35, 200 pts short.",
-      "D": "Option-PE",
-      "F": "OB + OTE (swing)",
-      "W": "1 lot (65)"
-    },
-    "^NSEI|2026-08-17T08:38:00Z": {
-      "AE": "Yes - no chase",
-      "AF": "NEVER_FILLED by 0.10 pts. The limit at 24360 was placed 0.65 ABOVE the 24359.35 rejection high it was derived from; post-call high was 24359.90 (1m, 5m and 15m all agree - the Yahoo daily bar reads 24360.10, a 0.20 aggregation artifact, so resolution uses the intraday series). Direction correct again: closed 24287.65. A 24355 limit, still inside the 24356.80-24397.80 OB and still in the OTE, fills and ends the session +1.30R unrealised. LESSON: for a short, place the limit AT or just UNDER the rejection high, never above it.",
-      "AG": "PAPERTRADE, live-watched by vv/watch_signal.py from 14:45 IST 17-Aug. Aug-25 24400 PE, lot 65, live mid 135.98, modelled debit ~127.07/unit (~Rs 8,260/lot). round_trip_cost_pct=0.00015 MEASURED via vv/costs.py, not assumed. Entry 24360 sits 18 pts above spot at issue vs 220 pts for T007 - the reachability fix.",
-      "D": "Option-PE",
-      "F": "OB + OTE (intraday)",
-      "W": "1 lot (65)"
-    },
-    "^NSEI|2026-08-17T10:00:00Z": {
-      "AF": "T007 -> T009: same bias, rebuilt execution. round_trip_cost_pct 0.001 -> 0.00017 (measured on the actual contract via vv/costs.py). Effect: min stop 243pts -> 41pts, actual stop 260 -> 60, entry distance 0.93% -> 0.13%, R:R 2.33 -> 3.05, and the target moved from 23954.60 (2.5% away, 2-3 week hold) to 24136.75 (0.75%, a few sessions). One wrong parameter had been setting the shape of the whole trade.",
-      "AG": "OPTION LEG RE-CHECKED AT THE OPEN 18-Aug 10:23 IST on live bid/ask (the T009 note it replaces was an end-of-day snapshot and said to re-check). Switched Aug-25 24400 PE -> Aug-25 24300 PE: on live quotes R:R1 3.13 vs 3.18 (inside the +/-0.7% forward-calibration error, so not a real edge) but debit Rs 6,833 vs Rs 10,094, risk Rs 1,789 vs Rs 2,333, OI 4.81m vs 3.56m and volume 7.64m vs 3.22m. Leg detail on Options Detail row 2. Put is bought ONLY when ^NSEI tags 24320 \u2014 pending limit, unfilled for one session. 18-Aug is a 0DTE weekly with 39.2m CE OI at 24300 and 37.3m PE OI at 24200, a pin that argues a tag is likelier 19-Aug than today. Fallback per the 1/8 fill-rate record: if price tags the 24269.50-24287.65 opening gap and prints a 5M bearish micro-BOS, buy the put there at market. Time stop 21-Aug close.",
-      "D": "Option-PE",
-      "F": "OB + FVG + OTE (swing)",
-      "W": "1 lot (65)"
-    },
-    "^NSEI|2026-08-18T05:29:00Z": {
-      "AG": "FIRST FILLED AND CLOSED TRADE IN THIS BOOK. Intraday 0DTE. Entry taken at market off the 24208.15 trigger at 24206/27.15; the 24216.40 FVG limit I refined it to afterwards NEVER filled \u2014 price did not retrace \u2014 so the market entry was the correct call and the refinement would have missed the trade entirely. Stop widened 24232 -> 24236 because 24232 gave only 26 pts from the actual fill, 0.10 under the measured 26.10 cost floor. Exited 44.60 near the session low 24174.50, well before the 24136.75 target; PE fell back to 35.25 within minutes, so the exit captured the spike. NET +Rs 1,081.34, +1.22R. Outcome = Manual Exit: target never reached, so this is NOT a TP win.",
-      "D": "Option-PE",
-      "F": "Sweep + displacement + 5M FVG",
-      "Q": "Yes",
-      "W": "1 lot (65)"
-    },
-    "^NSEI|2026-08-19T04:13:00Z": {
-      "AG": "INTRADAY continuation short, 25-Aug 24100 PE. Entry 24085.60 is the FVG, deliberately NOT the OTE at 24128.78-24145.86 which would give 3.58 R:R but sits 63 pts above spot with no bullish array printed all session; book fill rate is 3/7 so fillability won. Honest weakness: price is BELOW the 24190.30 daily equilibrium, so this is a short initiated in discount inside stacked daily bullish FVGs \u2014 wrong side of the range, hence Medium not High. Offset: remaining-session expected move +/-122.7 pts puts TP1 at 0.51x. TP1 24011.60 stops ABOVE the 13.63m-contract 24000 put wall deliberately \u2014 takes the approach, not the break. Closes 15:15 IST regardless.",
-      "D": "Option-PE",
-      "F": "Displacement + 5M FVG (no OB exists)",
-      "W": "1 lot (65)"
-    }
+  "ALKEM.NS|2026-08-14T10:00:00Z": {},
+  "APOLLOHOSP.NS|2026-08-14T10:00:00Z": {
+   "AG": "Reversal bar closed 99% of range on 2.9x volume; CHoCH above 8786. Taken as CASH EQUITY - every liquid Sep call gave option R:R below 1:2.",
+   "D": "Equity",
+   "F": "CHoCH + OTE"
   },
-  "options": [
-    {
-      "delta_at_entry": -0.44,
-      "entry_date": "2026-08-18",
-      "expiry": "2026-08-18",
-      "iv_at_entry": 14.9,
-      "kind": "PE",
-      "lot_size": 65,
-      "lots": 1,
-      "notes": "ACTUAL FILLS, not modelled. In 27.15 at underlying 24206 (~10:47 IST), taken off the stated 24208.15 bear trigger. Out 44.60 (~11:30 IST) near the session low of 24174.50 \u2014 a discretionary exit ahead of the 24136.75 target. Gross +Rs 1,134.25, charges Rs 52.91 (4.7% of gross), NET +Rs 1,081.34 = +1.22R on planned risk of Rs 888. Premium stop/target columns are the plan, not fills. 0DTE, closed same session.",
-      "premium_entry": 27.15,
-      "premium_exit": 44.6,
-      "premium_stop": 13.49,
-      "premium_target": 64.71,
-      "strike": 24200,
-      "trade_id": "T010",
-      "underlying": "NIFTY"
-    },
-    {
-      "delta_at_entry": -0.454,
-      "entry_date": "2026-08-19",
-      "expiry": "2026-08-25",
-      "iv_at_entry": 10.04,
-      "kind": "PE",
-      "lot_size": 65,
-      "lots": 1,
-      "notes": "ACTUAL FILLS. In 111.95 at underlying 24085.60 (09:43). Out 109.20 (~11:50) on confirmed impulse exhaustion \u2014 a 5M higher low at 24042.65 above the 24028.20 low \u2014 NOT on stop or target. Gross -Rs 178.75, charges Rs 63.01, NET -Rs 241.76 = -0.168R on planned risk of Rs 1,437. Peak was +Rs 679 at 11:09, four minutes after the impulse low; full-stop case was -Rs 1,437. Exit at 109.20 beat the 105.40 bid available minutes later.",
-      "premium_entry": 111.95,
-      "premium_exit": 109.2,
-      "premium_stop": 94.45,
-      "premium_target": 144.8,
-      "strike": 24100,
-      "trade_id": "T011",
-      "underlying": "NIFTY"
-    }
-  ]
+  "ASHOKLEY.NS|2026-08-14T10:00:00Z": {
+   "AG": "Swept 179.00 to 182.70, closed at bar low. CHoCH below 172.00 was only 0.21% - weak. Expressed via Sep-29 170 PE (option R:R 2.63:1).",
+   "D": "Option-PE",
+   "F": "Sweep + OB"
+  },
+  "BTC-USD|2026-08-15T17:13:40Z": {
+   "AF": "NO_TRADE signal \u2014 hypothetical would-be trade, not taken. EXCLUDED from sample (cost_dominated_risk)."
+  },
+  "CONCOR.NS|2026-08-14T10:00:00Z": {
+   "AG": "NO_TRADE signal \u2014 hypothetical would-be trade, not taken."
+  },
+  "HAL.NS|2026-08-17T07:00:00Z": {},
+  "HINDCOPPER.NS|2026-08-14T10:00:00Z": {},
+  "HYPE32196-USD|2026-08-15T20:15:55Z": {
+   "AF": "NO_TRADE signal \u2014 hypothetical would-be trade, not taken. EXCLUDED from sample (cost_dominated_risk)."
+  },
+  "OBEROIRLTY.NS|2026-08-17T07:00:00Z": {},
+  "PAGEIND.NS|2026-08-17T07:00:00Z": {},
+  "SHREECEM.NS|2026-08-14T10:00:00Z": {},
+  "^NSEI|2026-08-17T07:30:00Z": {
+   "AE": "N/A - never filled",
+   "AF": "Built on round_trip_cost_pct=0.001, a CASH-EQUITY figure. Measured index cost is 0.013-0.025% (vv/costs.py), so check 14 forced a 260-pt stop, which forced a 486-pt target, which pushed entry 0.90% from spot. Unreachable by construction. Superseded by T008.",
+   "AG": "Sep-29 24500 PE, lot 65, modelled debit ~219.51/unit. Entry 24560 never approached - session high 24359.35, 200 pts short.",
+   "D": "Option-PE",
+   "F": "OB + OTE (swing)",
+   "W": "1 lot (65)"
+  },
+  "^NSEI|2026-08-17T08:38:00Z": {
+   "AE": "Yes - no chase",
+   "AF": "NEVER_FILLED by 0.10 pts. The limit at 24360 was placed 0.65 ABOVE the 24359.35 rejection high it was derived from; post-call high was 24359.90 (1m, 5m and 15m all agree - the Yahoo daily bar reads 24360.10, a 0.20 aggregation artifact, so resolution uses the intraday series). Direction correct again: closed 24287.65. A 24355 limit, still inside the 24356.80-24397.80 OB and still in the OTE, fills and ends the session +1.30R unrealised. LESSON: for a short, place the limit AT or just UNDER the rejection high, never above it.",
+   "AG": "PAPERTRADE, live-watched by vv/watch_signal.py from 14:45 IST 17-Aug. Aug-25 24400 PE, lot 65, live mid 135.98, modelled debit ~127.07/unit (~Rs 8,260/lot). round_trip_cost_pct=0.00015 MEASURED via vv/costs.py, not assumed. Entry 24360 sits 18 pts above spot at issue vs 220 pts for T007 - the reachability fix.",
+   "D": "Option-PE",
+   "F": "OB + OTE (intraday)",
+   "W": "1 lot (65)"
+  },
+  "^NSEI|2026-08-17T10:00:00Z": {
+   "AF": "T007 -> T009: same bias, rebuilt execution. round_trip_cost_pct 0.001 -> 0.00017 (measured on the actual contract via vv/costs.py). Effect: min stop 243pts -> 41pts, actual stop 260 -> 60, entry distance 0.93% -> 0.13%, R:R 2.33 -> 3.05, and the target moved from 23954.60 (2.5% away, 2-3 week hold) to 24136.75 (0.75%, a few sessions). One wrong parameter had been setting the shape of the whole trade.",
+   "AG": "OPTION LEG RE-CHECKED AT THE OPEN 18-Aug 10:23 IST on live bid/ask (the T009 note it replaces was an end-of-day snapshot and said to re-check). Switched Aug-25 24400 PE -> Aug-25 24300 PE: on live quotes R:R1 3.13 vs 3.18 (inside the +/-0.7% forward-calibration error, so not a real edge) but debit Rs 6,833 vs Rs 10,094, risk Rs 1,789 vs Rs 2,333, OI 4.81m vs 3.56m and volume 7.64m vs 3.22m. Leg detail on Options Detail row 2. Put is bought ONLY when ^NSEI tags 24320 \u2014 pending limit, unfilled for one session. 18-Aug is a 0DTE weekly with 39.2m CE OI at 24300 and 37.3m PE OI at 24200, a pin that argues a tag is likelier 19-Aug than today. Fallback per the 1/8 fill-rate record: if price tags the 24269.50-24287.65 opening gap and prints a 5M bearish micro-BOS, buy the put there at market. Time stop 21-Aug close.",
+   "D": "Option-PE",
+   "F": "OB + FVG + OTE (swing)",
+   "W": "1 lot (65)"
+  },
+  "^NSEI|2026-08-18T05:29:00Z": {
+   "AG": "FIRST FILLED AND CLOSED TRADE IN THIS BOOK. Intraday 0DTE. Entry taken at market off the 24208.15 trigger at 24206/27.15; the 24216.40 FVG limit I refined it to afterwards NEVER filled \u2014 price did not retrace \u2014 so the market entry was the correct call and the refinement would have missed the trade entirely. Stop widened 24232 -> 24236 because 24232 gave only 26 pts from the actual fill, 0.10 under the measured 26.10 cost floor. Exited 44.60 near the session low 24174.50, well before the 24136.75 target; PE fell back to 35.25 within minutes, so the exit captured the spike. NET +Rs 1,081.34, +1.22R. Outcome = Manual Exit: target never reached, so this is NOT a TP win.",
+   "D": "Option-PE",
+   "F": "Sweep + displacement + 5M FVG",
+   "Q": "Yes",
+   "W": "1 lot (65)"
+  },
+  "^NSEI|2026-08-19T04:13:00Z": {
+   "AG": "INTRADAY continuation short, 25-Aug 24100 PE. Entry 24085.60 is the FVG, deliberately NOT the OTE at 24128.78-24145.86 which would give 3.58 R:R but sits 63 pts above spot with no bullish array printed all session; book fill rate is 3/7 so fillability won. Honest weakness: price is BELOW the 24190.30 daily equilibrium, so this is a short initiated in discount inside stacked daily bullish FVGs \u2014 wrong side of the range, hence Medium not High. Offset: remaining-session expected move +/-122.7 pts puts TP1 at 0.51x. TP1 24011.60 stops ABOVE the 13.63m-contract 24000 put wall deliberately \u2014 takes the approach, not the break. Closes 15:15 IST regardless.",
+   "D": "Option-PE",
+   "F": "Displacement + 5M FVG (no OB exists)",
+   "W": "1 lot (65)"
+  }
+ },
+ "options": [
+  {
+   "delta_at_entry": -0.44,
+   "entry_date": "2026-08-18",
+   "expiry": "2026-08-18",
+   "iv_at_entry": 14.9,
+   "kind": "PE",
+   "lot_size": 65,
+   "lots": 1,
+   "notes": "ACTUAL FILLS, not modelled. In 27.15 at underlying 24206 (~10:47 IST), taken off the stated 24208.15 bear trigger. Out 44.60 (~11:30 IST) near the session low of 24174.50 \u2014 a discretionary exit ahead of the 24136.75 target. Gross +Rs 1,134.25, charges Rs 52.91 (4.7% of gross), NET +Rs 1,081.34 = +1.22R on planned risk of Rs 888. Premium stop/target columns are the plan, not fills. 0DTE, closed same session.",
+   "premium_entry": 27.15,
+   "premium_exit": 44.6,
+   "premium_stop": 13.49,
+   "premium_target": 64.71,
+   "strike": 24200,
+   "trade_id": "T010",
+   "underlying": "NIFTY"
+  },
+  {
+   "delta_at_entry": -0.454,
+   "entry_date": "2026-08-19",
+   "expiry": "2026-08-25",
+   "iv_at_entry": 10.04,
+   "kind": "PE",
+   "lot_size": 65,
+   "lots": 1,
+   "notes": "ACTUAL FILLS. In 111.95 at underlying 24085.60 (09:43). Out 109.20 (~11:50) on confirmed impulse exhaustion \u2014 a 5M higher low at 24042.65 above the 24028.20 low \u2014 NOT on stop or target. Gross -Rs 178.75, charges Rs 63.01, NET -Rs 241.76 = -0.168R on planned risk of Rs 1,437. Peak was +Rs 679 at 11:09, four minutes after the impulse low; full-stop case was -Rs 1,437. Exit at 109.20 beat the 105.40 bid available minutes later.",
+   "premium_entry": 111.95,
+   "premium_exit": 109.2,
+   "premium_stop": 94.45,
+   "premium_target": 144.8,
+   "strike": 24100,
+   "trade_id": "T011",
+   "underlying": "NIFTY"
+  },
+  {
+   "delta_at_entry": -0.413,
+   "entry_date": "2026-08-20",
+   "expiry": "2026-08-25",
+   "iv_at_entry": 8.85,
+   "kind": "PE",
+   "lot_size": 65,
+   "lots": 1,
+   "notes": "ACTUAL quotes. In 69.80 (ask) at underlying 24214 ~10:29 IST; out 64.25 (bid) at 24222.85 ~11:20 IST. Gross -Rs 360.75 premium-only, charges excluded. Discretionary STRUCTURAL exit, not a stop-out: the 10:10 5M bar closed 24221.85 above the 18-Aug bearish OB high 24221.10 the trade was built on. Held to the 24292 stop it would have been about -Rs 664. Premium stop/target columns are the plan, not fills.",
+   "premium_entry": 69.8,
+   "premium_exit": 64.25,
+   "premium_stop": 59.58,
+   "premium_target": 95.56,
+   "strike": 24200,
+   "trade_id": "T012",
+   "underlying": "NIFTY"
+  },
+  {
+   "delta_at_entry": 0.474,
+   "entry_date": "2026-08-20",
+   "expiry": "2026-08-25",
+   "iv_at_entry": 8.32,
+   "kind": "CE",
+   "lot_size": 65,
+   "lots": 1,
+   "notes": "ACTUAL quotes, reconstructed one minute after fill (watcher did not yet stamp option quotes). In ~76.25 (ask) at underlying 24200 ~11:19 IST; out 76.05 (bid) at 24199.85 ~11:20 IST. Gross -Rs 13.00 premium-only; with charges roughly -Rs 80-90. SAME-BAR fill and invalidation: the 11:15 candle traded 24198.60 taking the 24200 limit, then CLOSED 24198.75 below the 24198.90 breaker. Design error - entry sat 1.10 pts from its own invalidation. See LEARNINGS 5.",
+   "premium_entry": 76.25,
+   "premium_exit": 76.05,
+   "premium_stop": 64.0,
+   "premium_target": 110.12,
+   "strike": 24300,
+   "trade_id": "T013",
+   "underlying": "NIFTY"
+  },
+  {
+   "delta_at_entry": -0.461,
+   "entry_date": "2026-08-21",
+   "expiry": "2026-08-25",
+   "iv_at_entry": 8.28,
+   "kind": "PE",
+   "lot_size": 65,
+   "lots": 1,
+   "notes": "ACTUAL fills. In 63.00 at underlying 24253.50 ~10:29 IST (watcher stamped ask 61.90; user filled 1.10 worse). Out 66.50 (bid) at 24233.95 at the 13:00 IST impulse time stop. Gross +Rs 227.50 premium-only, charges excluded = +0.51R on planned risk of 38.50 pts. Did NOT reach TP1 24190 - booked 31% of the planned move. Eight minutes after this exit the same put bid 59.25.",
+   "premium_entry": 63.0,
+   "premium_exit": 66.5,
+   "premium_stop": 49.33,
+   "premium_target": 90.13,
+   "strike": 24250,
+   "trade_id": "T014",
+   "underlying": "NIFTY"
+  },
+  {
+   "delta_at_entry": -0.456,
+   "entry_date": "2026-08-21",
+   "expiry": "2026-08-25",
+   "iv_at_entry": 10.49,
+   "kind": "PE",
+   "lot_size": 30,
+   "lots": 1,
+   "notes": "ACTUAL fills, watcher-stamped. In 211.60 (ask) at underlying 57720 ~10:42 IST; out 231.60 (bid) at 57660.25 ~12:45 IST on user instruction. Gross +Rs 600.00 premium-only, charges excluded = +0.66R on the original 90-pt risk. Did NOT reach TP1 57490 - booked 26% of the planned move. Stop was moved to breakeven 57720 at 12:17 after a +97.80 pt excursion faded by a third, which made the final 28 minutes risk-free. Premium stop column is the ORIGINAL 57810 stop.",
+   "premium_entry": 211.6,
+   "premium_exit": 231.6,
+   "premium_stop": 177.96,
+   "premium_target": 319.47,
+   "strike": 57700,
+   "trade_id": "T015",
+   "underlying": "BANKNIFTY"
+  }
+ ]
 }

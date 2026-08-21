@@ -24,29 +24,14 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from fetch_data import fetch_ohlc
+from fetch_data import fetch_ohlc, closed_bars, market_now, exchange_now
 
 IST = timezone(timedelta(hours=5, minutes=30))
 BAR = timedelta(minutes=5)
 
 
 def say(msg):
-    print(f"[{datetime.now(timezone.utc).astimezone(IST):%H:%M IST}] {msg}", flush=True)
-
-
-def closed_bars(ticker):
-    now = datetime.now(timezone.utc)
-    for rng, iv in (("1d", "5m"), ("5d", "5m")):
-        try:
-            c, _ = fetch_ohlc(ticker, rng, iv)
-        except Exception:
-            continue
-        today = datetime.now(IST).date()
-        bars = [b for b in c if b["dt"].astimezone(IST).date() == today
-                and b["dt"] + BAR <= now]
-        if bars:
-            return bars
-    return []
+    print(f"[{exchange_now().astimezone(IST):%H:%M IST}] {msg}", flush=True)
 
 
 def find(bars, min_width, fresh, min_leg):
@@ -76,7 +61,6 @@ def find(bars, min_width, fresh, min_leg):
             continue
         out.append((mid["dt"].astimezone(IST).strftime("%H:%M"), d, lo, hi, hi - lo, leg))
     return out[::-1]
-
 
 
 def find_sweeps(bars, prev_hi, prev_lo, min_wick, lookback):
@@ -150,10 +134,15 @@ def main():
     a = ap.parse_args()
 
     hh, mm = (int(x) for x in a.until.split(":"))
-    now = datetime.now(timezone.utc)
+    now = exchange_now()
     deadline = now.replace(hour=hh, minute=mm, second=0, microsecond=0)
     if deadline <= now:
         deadline += timedelta(days=1)
+    # regularMarketTime freezes at the close, so exchange_now() can stall just
+    # short of a deadline set at/after it. monotonic elapsed time cannot stall
+    # and cannot be moved by a clock jump, so it backstops the exit.
+    started = time.monotonic()
+    max_run = (deadline - now).total_seconds() + 1800
 
     modes = "displaced FVG (continuation)" if a.no_sweeps else \
             "displaced FVG (continuation) + liquidity sweep & reclaim (reversal)"
@@ -163,7 +152,9 @@ def main():
     prev_hi = prev_lo = None
     try:
         d, _ = fetch_ohlc(a.ticker, "5d", "1d")
-        today = datetime.now(IST).date()
+        # Session date from the data, not the clock: a skewed host clock would
+        # otherwise load the wrong session's high/low as the liquidity pools.
+        today = max(x["dt"].astimezone(IST).date() for x in d)
         prior = [x for x in d if x["dt"].astimezone(IST).date() < today]
         if prior:
             prev_hi, prev_lo = prior[-1]["high"], prior[-1]["low"]
@@ -173,22 +164,22 @@ def main():
         say(f"could not load prior-day pools ({e}); sweep scan limited to intraday swings.")
 
     seen = set()
-    last_ok = datetime.now(timezone.utc)
+    last_ok = time.monotonic()
     stale_warned = False
     while True:
-        if datetime.now(timezone.utc) >= deadline:
+        if exchange_now() >= deadline or time.monotonic() - started > max_run:
             say("SESSION CLOSE — scan ended. Nothing further.")
             return
         bars = closed_bars(a.ticker)
         if not bars:
-            gap = (datetime.now(timezone.utc) - last_ok).total_seconds() / 60
+            gap = (time.monotonic() - last_ok) / 60
             if gap >= a.stale and not stale_warned:
                 stale_warned = True
                 say(f"!! FEED STALE — no closed {a.ticker} bar for {gap:.0f} min. "
                     f"Not scanning; silence means nothing.")
             time.sleep(a.interval)
             continue
-        last_ok = datetime.now(timezone.utc)
+        last_ok = time.monotonic()
         if stale_warned:
             stale_warned = False
             say("feed recovered — scanning again.")

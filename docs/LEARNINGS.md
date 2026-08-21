@@ -97,9 +97,135 @@ makes TP1 pay less than 2:1 **on the option leg**. Underlying R:R is not the tes
 minutes after the impulse low, then round-tripped to **−Rs 166** over 45 minutes
 of chop. The plan had no rule that would have taken it off.
 
+### 2026-08-21 — the mid-session time stop is the PRIMARY exit, and it beat discretion
+
+Confirmed on two trades in one session, both **directionally correct**, **neither
+reaching TP1**:
+
+| | entry | exit | underlying | booked | % of planned move |
+|---|---|---|---|---|---|
+| BANKNIFTY 57700 PE | 211.60 | 231.60 | +59.75 pt | **+Rs 600** | 26% |
+| NIFTY 24250 PE | 63.00 | 66.50 | +19.55 pt | **+Rs 228** | 31% |
+
+Both were closed by rule, not judgement, and the rule won both times:
+
+- **NIFTY** exited at the 13:00 IST time stop, PE **66.50**. Eight minutes later
+  the same put bid **59.25** — a **Rs 470/lot** swing while the underlying was
+  still 6 points in profit. The loss was pure IV collapse (8.28 -> 8.09) plus
+  theta. The user held past the rule and was down ~Rs 270 on a position that was
+  *still directionally right*.
+- **BANKNIFTY** had its stop moved to breakeven at 12:17 after giving back a
+  third of a +97.80 point excursion. That made the final 28 minutes free and
+  neutralised two pullbacks that would otherwise have mattered.
+
+**Discretion lost, repeatedly.** Recommendations to close were issued at 12:30
+and 12:32 — both into temporary pullbacks that recovered within minutes — and a
+"cancel it" recommendation at 12:15 that would have skipped the entire profitable
+move. Three wrong reads in thirty minutes against two correct rule-driven exits.
+
+**The generalisation:** for intraday long premium, an impulse/time stop is not a
+backstop behind stop-and-target — it is the **exit that actually fires**. Across
+19, 20 and 21 Aug, **zero** intraday option trades reached TP1; every resolution
+came from a time stop, a structural invalidation, or a stop. Size the plan around
+that, and set the time stop at the point the *impulse* should have completed
+(here 13:00, ~3h after the setup), not at the session close.
+
+A 15:30 close-out remains an end-of-day backstop and still does not cover this.
+
 ---
 
-## 5. Recurring failure modes already guarded
+## 5. An entry must clear its own invalidation by more than one bar's range
+
+NIFTY 20-Aug-2026, 24300 CE long. Entry **24200.00**, breaker invalidation
+**24198.90** — **1.10 points apart**. The 11:15 5M candle traded 24198.60, which
+filled the limit, and then closed 24198.75, which lost the breaker. Filled and
+invalidated by the same bar; the position existed for about one minute.
+
+Cost was only the spread and fees (~Rs 80/lot vs Rs 2,998 at the real stop), so
+the damage was trivial — but the *design* was broken, not unlucky. A 5M NIFTY bar
+routinely ranges 10-15 points. Any entry sitting inside one bar's range of its own
+invalidation is guaranteed to do this eventually.
+
+**Apply:** before logging, check `entry - invalidation` (long) or
+`invalidation - entry` (short) against the recent median 5M bar range on that
+instrument. If the gap is smaller, the setup is not tradeable **at that entry** —
+move the entry away from the invalidation, or drop the trade. Do not move the
+invalidation to make room; it is defined by structure, not convenience.
+
+Related trap, same session: the fill and the invalidation being adjacent also
+makes both watchers fire proximity warnings together. Paired alerts on opposite-
+direction levels are a *symptom* of this flaw, not noise to be tuned out.
+
+---
+
+## 6. The fill-rate fix worked (measured). Whether target-reaching is the new leak is NOT yet established
+
+`python3 vv/review.py` on 2026-08-20, after the close-entry fix from learning 2:
+
+```
+EXECUTION  fill rate 7/10 (70%)   median entry distance 1.96% of spot
+           of filled: 0 target, 1 stop
+GAP        4 of 10 signals were directionally right; 7 actually traded.
+```
+
+**What is established:** fill rate 12% -> 70%, median entry distance 2.61% ->
+1.96%. That is a real before/after on a change actually made, and learning 2 is
+fixed. Stop quoting the 1/8 figure as the live problem.
+
+**What is NOT established:** `of filled: 0 target` is suggestive, nothing more.
+The whole log contains **one decisive resolution**. Concluding from this that
+"reaching target is the new binding constraint" would repeat exactly the error
+learning 2 warns about — treating a handful of outcomes as a finding. It is an
+open question, not a result.
+
+Confounder to rule out before believing it: the 20-Aug session realised **41.6
+points against a ~90-point straddle-implied move**. On a day that does not
+deliver its priced range, no 2R intraday target is reachable in either
+direction, so 0-for-2 that session says more about the tape than the method.
+
+**Re-check after 5 decisive resolutions.** If `of filled: 0 target` still holds
+then, it is a finding and belongs in its own section with the evidence.
+
+**Apply now (independent of the above):** re-run the straddle check (learning 4)
+*during* the session, not only at entry. If realised range is tracking far under
+the implied move by midday, targets set at the open are no longer reachable and
+open positions should be scratched on time rather than held to a stop that will
+not come.
+
+---
+
+## 7. Judge an array's invalidation on the timeframe that produced it
+
+NIFTY 20-Aug-2026, 24300 CE long. The setup rested on a **15M** order block
+(18-Aug 14:45 candle), but its invalidation was written as *a 5M close below
+24198.90*. Two 5M bars closed under it — 24198.75 and 24198.10, breaking it by
+0.15 and 0.80 points — and I exited.
+
+The 15M bar containing both of those closes **closed at 24201.00, above the
+level**. On the timeframe that defined the array, the invalidation never fired.
+
+```
+11:15 15M   H 24207.70  L 24194.20  C 24201.00   <- breaker intact
+```
+
+Exit at ~24199.85 (CE bid 76.05). Thirty-eight minutes later spot was 24212.40
+and the CE bid 84.60 — **+Rs 543/lot held, versus -Rs 80 taken. The premature
+exit cost ~Rs 623/lot.** The 24173 stop was never approached; the lowest print
+after the exit was 24194.20, 21 points clear.
+
+**Apply:**
+- The invalidation timeframe must match the array's timeframe. A 15M order block
+  is invalidated by a **15M** close, not a 5M one. Using a faster timeframe
+  converts ordinary noise into a false exit signal.
+- Compounds badly with learning 5: an invalidation inside one bar's range of the
+  entry, judged on a fast timeframe, is near-certain to fire spuriously.
+- Following a pre-committed rule was still correct. The failure was in *writing*
+  the rule, not in obeying it — fix the specification, do not start improvising
+  exits.
+
+---
+
+## 8. Recurring failure modes already guarded
 
 - **`cost_dominated_risk`** — the earliest signals all died with stops too tight
   against fees. Guarded by `verify_signal.py` check `14-cost-vs-risk`.
