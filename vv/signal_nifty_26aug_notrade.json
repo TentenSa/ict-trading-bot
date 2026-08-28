@@ -1,0 +1,91 @@
+{
+  "ticker": "^NSEI",
+  "as_of": "2026-08-26T05:55:00Z",
+  "timeframe_analyzed": "Daily -> 5M",
+  "htf_bias": "Bearish intraday inside a bullish daily close",
+  "liquidity": {
+    "bsl": [
+      {
+        "label": "26-Aug high - swept 25-Aug high by 43.45 then rejected",
+        "price": 24378.0
+      },
+      {
+        "label": "25-Aug high/close - taken out this morning",
+        "price": 24334.55
+      },
+      {
+        "label": "11:15 swing high - the stop reference",
+        "price": 24332.65
+      }
+    ],
+    "ssl": [
+      {
+        "label": "26-Aug low - the trigger level",
+        "price": 24294.35
+      },
+      {
+        "label": "1-Sep max pain and 17.3m combined OI wall",
+        "price": 24300.0
+      },
+      {
+        "label": "24-Aug close",
+        "price": 24219.05
+      }
+    ]
+  },
+  "narrative": "NO_TRADE. THE GEOMETRY IS A COIN FLIP AND IT IS SYMMETRIC, WHICH IS THE WHOLE ARGUMENT. Measured over 58 sessions of 5M data: entering blind at 11:20 and racing a 1.5R target against its stop wins 38-42 percent of DECIDED trades against a 40 percent break-even - and it wins the same either way, 39 percent long and 39 percent short at stop 28 target 42. Symmetry in both directions is the signature of a random walk, not of a setup. THE OBVIOUS FIX MAKES IT WORSE. Waiting for a 5M close beyond the 09:15-11:20 range before entering - the standard confirmation plan - drops it to 32 percent short and 25 percent long, triggering on 47-48 percent of sessions. Chasing a range break in this index is measurably the worst of the three choices tested, so the trigger levels a NO_TRADE would normally arm are the ones NOT to trade in the breakout direction. THE ONLY POSITIVE STRUCTURE IS THE FADE, AND THE OPTION EATS IT. Fading the break - long after a down-break, short after an up-break - wins 68 percent (17/8) and 75 percent (18/6) against a 60 percent break-even at 0.67R. That is a real edge on the UNDERLYING. Priced through the option it disappears: buying the 24300 CE at 153.10 on a down-break fade, a plus-28 target returns 8.8 percent and a minus-42 stop costs 16.1 percent after roughly 1.8 points of session theta, so at 68 percent the expectancy is plus 0.5 percent of premium - about 50 rupees a lot, indistinguishable from noise, resting on n=25 with z approximately 0.8. The better-priced version (up-break fade via the 24300 PE at 80.10, EV plus 3.55 percent) needs a break above 24378.00, which is 78 points away while price sits at the session low. THE PIN IS THE OTHER HALF. 1-Sep max pain is 24300 and spot is 24299.85, sitting exactly on it, with 8.21m CE and 9.10m PE - 17.3m combined, the largest concentration on the board - at that strike. Above it 24350 carries 6.73m and 24400 carries 9.86m. A short must travel through the pin and a long must clear two call walls. Yesterday both losing trades were long premium fighting an expiry pin; this is the same shape. THE STRUCTURALLY HONEST STOP KILLS IT OUTRIGHT. Shorting the rejection means the stop sits ABOVE the 24332.65-24378.00 block, at 24382.00, for 82.15 points of risk; the 1.5 floor then demands 123.2 points and puts TP1 at 24176.50. Price travels 123+ points further down from 11:20 in only 21 percent of 58 sessions, against the 40 percent a 1.5R trade needs to break even. The tight 24337.00 stop that makes the geometry look workable does so only by pretending the rejection zone is 45 points narrower than it is. WHAT WOULD CHANGE IT: not a level, a regime. This needs either a session that has not already spent its morning chopping 84 points around max pain, or an up-break to 24378 that can be faded with the cheaper put. The hypothetical logged here is the naive read - short the rejected sweep of yesterday's high - so the backtester scores whether standing aside was right.",
+  "zones": {
+    "order_block": {
+      "direction": "bearish",
+      "low": 24332.65,
+      "high": 24378.0,
+      "timeframe": "5m"
+    },
+    "dealing_range": {
+      "low": 24294.35,
+      "high": 24378.0
+    },
+    "equilibrium": 24336.18,
+    "premium_discount": "discount",
+    "ote": {
+      "low": 24346.11,
+      "high": 24360.03,
+      "swing_high": 24378.0,
+      "swing_low": 24294.35
+    }
+  },
+  "signal": "NO_TRADE",
+  "is_hypothetical": true,
+  "hypothetical": {
+    "would_be_direction": "SELL",
+    "entry": 24299.85,
+    "stop_loss": 24382.0,
+    "take_profits": [
+      24176.5
+    ],
+    "risk_reward": 1.5,
+    "rationale": "The STRUCTURALLY HONEST version of the naive read, and the reason it is a NO_TRADE. 26-Aug swept the 25-Aug high by 43.45 points and rejected 83.7. Shorting that rejection means the stop belongs ABOVE the 24332.65-24378.00 rejection block, not inside it - 24382.00, for 82.15 points of risk. At the 1.5 index intraday floor that demands 123.2 points of reward, putting TP1 at 24176.50. Measured over 58 sessions, price travels 123+ points further down from 11:20 only 21 percent of the time, against the 40 percent break-even a 1.5R trade needs. The tighter 24337.00 stop a naive read would use sits INSIDE the block it is meant to protect against - the same verifier check 9 failure as 25-Aug - and buys its better geometry by pretending the rejection zone is 45 points narrower than it is.",
+    "take_profit": 24176.5
+  },
+  "entry": 24299.85,
+  "stop_loss": 24382.0,
+  "take_profits": [
+    24176.5
+  ],
+  "risk_reward": 1.5,
+  "invalidation": "Not applicable - no position. The NO_TRADE is invalidated as a DECISION if price closes a 5M bar above 24378.00, which would set up the up-break fade via the 24300 PE, the one structure measured to carry a positive expectancy after option costs (75 percent win, EV plus 3.55 percent of premium).",
+  "confidence": "Low",
+  "resolution_interval": "5m",
+  "horizon_hours": 5,
+  "round_trip_cost_pct": 7.6e-05,
+  "option": null,
+  "lot": 65,
+  "track_record": {
+    "note": "^NSEI: 3/8 wins (38%), 4 timed out. Across the whole log, of 11 filled signals 0 ever reached TP1 and 8 hit the stop. That record is the strongest single argument for standing aside on a setup whose measured win rate is a coin flip.",
+    "sufficient_history": true,
+    "wins": 3,
+    "losses": 5,
+    "timeouts": 4,
+    "decisive_resolved": 8
+  }
+}

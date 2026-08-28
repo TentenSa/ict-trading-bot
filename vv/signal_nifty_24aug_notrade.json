@@ -1,0 +1,14 @@
+{
+  "ticker": "^NSEI",
+  "as_of": "2026-08-24T04:10:00Z",
+  "timeframe_analyzed": "Daily -> 15M -> 5M",
+  "htf_bias": "Bearish",
+  "signal": "NO_TRADE",
+  "is_hypothetical": true,
+  "hypothetical": {"bias_direction": "bearish", "entry": 24297.00, "stop_loss": 24325.00, "take_profit": 24233.00},
+  "confidence": "Low",
+  "resolution_interval": "5m",
+  "horizon_hours": 6,
+  "round_trip_cost_pct": 0.000097,
+  "narrative": "Stood aside on the option chain, not on the price structure. The raid pattern that worked on Friday is present again: NIFTY gapped up, took out the 21-Aug high of 24284.05 by printing 24313.00 in the opening minutes, and was rejected 37 points inside fifteen minutes with lower 5M highs since. On structure alone this is the same short. Three things override it. First, MAX PAIN is 24300 and that strike carries 47.91m of open interest - 26.86m calls and 21.05m puts - against 31.46m at the next-biggest strike. Spot is 24276, twenty-four points under the magnet, on the day before expiry when pin effects are strongest. On 18-Aug a smaller wall than this produced a 61-point range for the whole session. Second, today's 24313.00 high is 85.9 percent of the 17-Aug to 19-Aug daily bear leg, which is ABOVE the 62-79 percent OTE short zone of 24233.01-24289.87. Friday's rejection came at 77.3 percent, inside the zone; breaching it turns a retracement short into a counter-trend short and the premise is weaker than it was on Friday, not stronger. Third, the arithmetic is marginal even if the structure held. The forward is 24319.00 and the ATM straddle 117.40 over 1.94 trading days, which prices 81.8 points of expected move for the rest of today. The hypothetical short logged here - entry 24297.00 at the 62 percent edge of today's 24313.00-24271.10 down-leg, stop 24325.00, target 24233.00 - is 2.29R but needs the day's range to reach 80 points, or 98 percent of the entire remaining budget, and it would have to drag price away from the 24300 magnet to get there. The entry itself sits three points from max pain. Logged as a hypothetical so the backtester scores whether standing aside was correct rather than leaving the decision unmeasured."
+}

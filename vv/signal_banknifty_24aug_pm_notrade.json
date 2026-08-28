@@ -1,0 +1,14 @@
+{
+  "ticker": "^NSEBANK",
+  "as_of": "2026-08-24T06:55:00Z",
+  "timeframe_analyzed": "Daily -> 15M -> 5M",
+  "htf_bias": "Bearish",
+  "signal": "NO_TRADE",
+  "is_hypothetical": true,
+  "hypothetical": {"bias_direction": "bearish", "entry": 57320.00, "stop_loss": 57430.00, "take_profit": 57217.60},
+  "confidence": "Low",
+  "resolution_interval": "5m",
+  "horizon_hours": 3,
+  "round_trip_cost_pct": 0.000103,
+  "narrative": "Standing aside on reachability, not on direction. The direction was right all day and went unpaid: the 09:45 signal was cancelled at 57818.00 unfilled and BANKNIFTY has since fallen 450 points without it. Structure now is a clean bear day - the 21-Aug high 57772.45 was raided at 57873.75, rejected, and price has broken the 21-Aug low 57481.55 and the 20-Aug low 57431.80, printing 57324.45 at 11:35 IST. Two unfilled 5M bear FVGs stand overhead at 57453.05-57502.95 and 57511.90-57534.20. Since 11:35 price has held a 99-point box, 57324.45-57423.65, for nine bars. WHAT KILLS EVERY VERSION OF THIS TRADE IS THE MOVE BUDGET. BANKNIFTY has already travelled 549.30 points of range today against an ATM straddle of 394.50 that prices only 315.6 points of expected move for the ENTIRE remaining life of the contract, and roughly 107.1 points for the rest of today. The stop has to clear the p90 5M bar range of 66.70, which forces at least 87 points of risk on any structurally honest entry, so the 1.5R floor demands a target 130+ points away. Every combination fails: continuation short 57320 to the 18-Aug low 57217.60 is 0.93R; the same short to the 19-Aug low 57001.75 is 2.89R but needs 369.6 points of travel; the retracement short from the 57453.05 FVG edge is 2.71R but needs 317.2 points. The one shape that fits the budget - a mean-reversion long to max pain 57500 - is 0.62R and points against a 400-point down day. Max pain 57500 sits 129 points ABOVE spot, so the weak pin that remains pulls against the short as well. The hypothetical logged here is the continuation short I would take if the budget allowed, so the backtester scores whether standing aside was correct rather than leaving it unmeasured. Watchers are armed at 57324.45 and 57217.60 below and 57453.05 and 57534.20 above; a close through any of them is a range expansion that re-prices the budget and makes this worth re-cutting."
+}

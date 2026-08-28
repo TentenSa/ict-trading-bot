@@ -1,0 +1,81 @@
+{
+  "ticker": "^NSEI",
+  "as_of": "2026-08-25T05:05:00Z",
+  "timeframe_analyzed": "Daily -> 15M -> 5M",
+  "htf_bias": "Bearish",
+  "liquidity": {
+    "bsl": [
+      {
+        "label": "25-Aug session high",
+        "price": 24198.1
+      },
+      {
+        "label": "18-Aug low - lost, now resistance",
+        "price": 24154.9
+      },
+      {
+        "label": "24-Aug low - swept then reclaimed then lost",
+        "price": 24144.3
+      }
+    ],
+    "ssl": [
+      {
+        "label": "25-Aug session low",
+        "price": 24115.55
+      },
+      {
+        "label": "19-Aug close - TP1",
+        "price": 24078.3
+      },
+      {
+        "label": "19-Aug low - runner",
+        "price": 24025.65
+      }
+    ]
+  },
+  "narrative": "Stop-and-reverse of the failed long. The 09:15 sweep to 24129.15 closing at 24184.05 looked like a sell-side raid and was traded long from the 62-79 percent OTE; it failed. Price never reclaimed 24154.90, tested 24129.15 five times, and the 10:20 5M bar closed 24120.50 - through both the long's 24124.00 stop and this short's 24125.00 trigger, the same level serving both decisions. That close reclassifies the open: the drive below the 24-Aug low of 24144.30 was a genuine breakdown, not a raid, and the draw is now the 19-Aug close at 24078.30 and the 19-Aug low at 24025.65. WHAT IS DIFFERENT FROM THE LONG. The long never had IV confirmation - solved call IV fell 16.27 to 14.58 percent while price stalled, which is the exact failure the 24-Aug post-mortem flagged as disqualifying. Here the skew has flipped: solved put IV is 15.54 percent against 14.58 on the call side, so the option market is now paying up for downside. That is the gate the previous trade lacked. THE HONEST PROBLEM IS THE FILL. The trade was specified at entry 24125.00 with stop 24155.00 for 1.56R. The actual fill of 19.60 on the 24100 PE implies underlying 24122.86, roughly two points worse for a short, and that alone drops the pairing with TP 24078.30 to 1.39R - under the 1.5 intraday floor. The stop is therefore moved to 24148.00 rather than the target being stretched to manufacture a pass. 24148 is not an arbitrary tightening: it sits just above 24144.30, the 24-Aug low whose loss IS the premise, so a reclaim of that level breaks the trade regardless of where the wider stop sat. At 25.14 points it still clears the 19.80 p90 5M bar, so one candle cannot fill and kill. Geometry restored to 1.77R, with 3.87R available on the runner. REGIME CAVEAT, UNCHANGED AND UNRESOLVED. NIFTY's session range was frozen at 68.9 points from 09:20 to 10:15 with 53.2m of open interest on the 24200 strike, and that compression is what killed the long. The range has since extended to 82.5 points, which is the first evidence the pin is loosening, but TP1 needs 44.56 more points and the runner 103.75 against a median expiry-Tuesday range of 175.0. Reachable, not comfortable. This position is taken on the user's initiative after a recommendation to stand down for the session; the recommendation was not withdrawn, and the trade is being managed rather than endorsed. TARGET AND STOP RESOLVED AT LOGGING, AND THE FIRST ATTEMPT WAS WRONG. Tightening the stop to 24148.00 to rescue the ratio failed verifier check 14: at 25.14 points of risk the 3.14 point round-trip cost is 12 percent of the stop, over the 10 percent ceiling, so the trade would have been paying too much of its own risk in friction. The stop must therefore stay at 24155.00, which forces the other side of the arithmetic: at 32.14 points of risk the 1.5 floor demands a target at least 48.21 points away, and 24078.30 at 44.56 does not qualify. TP1 is therefore the 19-Aug low at 24025.65 for 3.02R, and 24078.30 is demoted to a WAYPOINT where price may stall and a partial scale-out is a management choice - it is explicitly not the target the trade was taken for. This is the same correction the 24-Aug BANKNIFTY short needed, and it is the second time the near level has had to be moved out of TP1.",
+  "zones": {
+    "order_block": {
+      "direction": "bearish",
+      "low": 24129.05,
+      "high": 24144.3,
+      "timeframe": "5m"
+    },
+    "dealing_range": {
+      "low": 24115.55,
+      "high": 24198.1
+    },
+    "equilibrium": 24156.83,
+    "premium_discount": "discount",
+    "ote": {
+      "low": 24136.93,
+      "high": 24151.13,
+      "swing_high": 24198.1,
+      "swing_low": 24115.55
+    }
+  },
+  "signal": "SELL",
+  "entry": 24122.86,
+  "stop_loss": 24155.0,
+  "take_profits": [
+    24025.65
+  ],
+  "risk_reward": 3.02,
+  "invalidation": "A 5M close above 24155.00 puts price back over the 18-Aug low of 24154.90 and well clear of the 24-Aug low at 24144.30, the level whose loss defines this trade - a reclaim says the 10:20 breakdown was itself a fakeout and the range is intact. The level sits 32.14 points from entry, clearing both the 19.80 p90 5M bar and the 3.14-point round-trip cost floor, so one candle cannot both fill the order and kill the premise and the stop is not so tight that costs eat the edge. Judged on a 5M CLOSE, not a wick - the same rule held this morning's long through two wicks into its kill zone before releasing it correctly. Time stop 14:30 IST.",
+  "confidence": "Medium",
+  "resolution_interval": "5m",
+  "horizon_hours": 5,
+  "round_trip_cost_pct": 0.00013,
+  "option": "NIFTY 2026-08-25 24100 PE",
+  "lot": 65,
+  "entry_premium": 19.6,
+  "entry_premium_source": "user's actual fill; chain was 17.45/17.55 at 10:37 IST logging time",
+  "track_record": {
+    "note": "Insufficient history for ^NSEI: 4 resolved trade(s) logged (need 5), 0 still open. Not used to adjust this signal.",
+    "sufficient_history": false,
+    "wins": 1,
+    "losses": 3,
+    "timeouts": 4,
+    "decisive_resolved": 4
+  }
+}

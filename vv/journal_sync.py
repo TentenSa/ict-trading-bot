@@ -167,9 +167,21 @@ def harvest(store, forget=()):
     return store, picked
 
 
-def _signals_by_ticker():
+def _signals_by_key():
     """Signal JSONs carry fields the log does not keep -- HTF bias, the OTE
-    bounds, TP2, the invalidation text. Indexed by ticker, newest as_of wins."""
+    bounds, TP2, the invalidation text.
+
+    Indexed by (ticker, as_of), NOT by ticker. Keying on ticker alone meant the
+    newest signal for a symbol won, and every older row for that symbol then
+    inherited its bias, OTE bounds, TP2 and invalidation text. On 2026-08-25
+    that put one signal's "Bearish daily sequence, bullish one-night skew", its
+    24190.40-24230.70 zone and its "There is NO overnight stop" invalidation
+    onto all five NIFTY rows of the day, four of which were different trades
+    with different premises. A row now takes its own signal's fields or none:
+    resolved signal files get deleted once logged, so a row whose file is gone
+    leaves these columns BLANK, which is correct where the old behaviour was
+    confidently wrong.
+    """
     out = {}
     for p in sorted(HERE.glob("*.json")):
         if p.name == ANNOT_PATH.name:
@@ -180,9 +192,7 @@ def _signals_by_ticker():
             continue
         if not isinstance(d, dict) or "ticker" not in d or "signal" not in d:
             continue
-        prev = out.get(d["ticker"])
-        if prev is None or str(d.get("as_of", "")) >= str(prev.get("as_of", "")):
-            out[d["ticker"]] = d
+        out[(d["ticker"], str(d.get("as_of", "")))] = d
     return out
 
 
@@ -223,7 +233,7 @@ def build_rows(forget=(), renumber=False):
             store["manual"].pop(nat, None)
     store, _ = harvest(store, forget)
     log = read_log()
-    sigs = _signals_by_ticker()
+    sigs = _signals_by_key()
 
     used = set(store["ids"].values())
     nse_rows, cry_rows = [], []
@@ -243,8 +253,16 @@ def build_rows(forget=(), renumber=False):
             store["ids"][k] = tid
         used.add(tid)
 
-        sig = sigs.get(entry["ticker"], {})
-        zones = (sig.get("zones") or {}) if sig.get("ticker") == entry["ticker"] else {}
+        # Prefer the snapshot persisted INTO the log at signal time; fall back to
+        # the on-disk signal file only when a row predates the snapshot field.
+        # The file is the fragile source - resolved ones are deleted - so the log
+        # wins wherever it has the data.
+        snap = entry.get("snapshot") or {}
+        sig = dict(sigs.get((entry["ticker"], str(entry.get("as_of", ""))), {}))
+        for k, v in snap.items():
+            if v not in (None, "", [], {}):
+                sig[k] = v
+        zones = sig.get("zones") or {}
         ote = zones.get("ote") or {}
         tps = sig.get("take_profits") or []
         direction = entry.get("trade_direction")

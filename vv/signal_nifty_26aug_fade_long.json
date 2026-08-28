@@ -1,0 +1,85 @@
+{
+  "ticker": "^NSEI",
+  "as_of": "2026-08-26T06:25:00Z",
+  "timeframe_analyzed": "5M over 60 sessions of walk-forward",
+  "htf_bias": "Mean-reverting intraday; range-edge fade",
+  "liquidity": {
+    "bsl": [
+      {
+        "label": "26-Aug high - swept 25-Aug high then rejected",
+        "price": 24378.0
+      },
+      {
+        "label": "25-Aug high - swept this morning",
+        "price": 24334.55
+      },
+      {
+        "label": "1-Sep max pain, 17.3m OI - now ABOVE spot, pulls toward the target",
+        "price": 24300.0
+      },
+      {
+        "label": "TP1",
+        "price": 24324.0
+      }
+    ],
+    "ssl": [
+      {
+        "label": "morning range low - the trigger, closed below at 11:50",
+        "price": 24294.35
+      },
+      {
+        "label": "session low at the trigger bar",
+        "price": 24282.95
+      },
+      {
+        "label": "stop",
+        "price": 24239.0
+      }
+    ]
+  },
+  "narrative": "FADE, NOT CHASE - THE ENTRY IS A BUY WHILE PRICE MAKES NEW SESSION LOWS, AND THAT IS THE ENTIRE POINT. The 11:50 5M bar closed 24285.15, below the 24294.35 morning-range low, firing the trigger armed at 11:24. Measured over 58-60 sessions, three ways of trading this were tested and only the fade survives: entering blind at 11:20 wins 39 percent long and 39 percent short against a 40 percent break-even - symmetric, which is the signature of a random walk rather than a setup; CHASING the down-break short wins 32 percent; FADING it long wins 75 percent (18/6) against a 59 percent break-even at stop 50 target 35, an edge of plus 16 points. THE PIN FLIPPED SIDES AND THAT IS REAL CONFLUENCE, NOT A RETROFIT. At 11:16, when this was called NO_TRADE, spot was 24307 with 1-Sep max pain at 24300 sitting BELOW - a magnet arguing against a long. Price has since crossed it: spot 24288.80 is now beneath the 24300 strike that carries 8.21m CE and 9.10m PE, 17.3m combined and the largest concentration on the board, so the same pin now pulls UP toward the 24324.00 target. Same level, same OI, opposite sign, because price moved across it. THE GEOMETRY FAILS THE R:R FLOOR BY DESIGN. Risk 50 points against 35 of reward is 0.70, well under the 1.5 index intraday floor, and verifier check 8 will fail on it. That failure is accurate. This is a high-hit-rate mean-reversion trade whose expectancy comes from the 75 percent hit rate, not the ratio: 0.75 x 1305 minus 0.25 x 1619 is plus 574 rupees a lot before fees. The floor is the right default and this is a deliberate, measured exception to it, not an oversight. THE EDGE IS NOT STATISTICALLY ESTABLISHED. 18 wins from 24 decided against a 59 percent break-even is z approximately 1.6 - suggestive, not proven, the same standing as the 25-Aug BTST at t=1.80. Sample is 60 sessions of 5M data, which is all the retention window holds. OPTION MATH, PRICED OFF THE FORWARD. Solved IV 8.85 percent against the broker's published 10.55, so reading their field would misprice this leg by plus 17.67 percent. Parity forward 24368.46, basis plus 76.31. The 24350 CE at ask 121.00 costs 7,865 rupees a lot; at the 24324.00 target it projects to 139.12 for plus 1,305 (plus 16.9 percent), at the 24239.00 stop to 94.13 for minus 1,619 (minus 20.9 percent). Strike chosen over the 24300 CE and 24400 CE on EV per rupee of debit while staying above the roughly 6,000 rupee fee floor. TIME STOP CORRECTED at 12:35 - see invalidation; the original 14:00 cut would have removed 28 percent of the measured winners because losses in this setup resolve in a median 32 minutes while wins take 62. NOT TAKEN BY THE USER - see the note field. Logged anyway so the CALL is scored.",
+  "zones": {
+    "order_block": {
+      "direction": "bullish",
+      "low": 24282.95,
+      "high": 24294.35,
+      "timeframe": "5m"
+    },
+    "dealing_range": {
+      "low": 24282.95,
+      "high": 24378.0
+    },
+    "equilibrium": 24330.48,
+    "premium_discount": "discount",
+    "ote": {
+      "low": 24341.86,
+      "high": 24358.03,
+      "swing_high": 24378.0,
+      "swing_low": 24282.95
+    }
+  },
+  "signal": "BUY",
+  "entry": 24288.8,
+  "stop_loss": 24239.0,
+  "take_profits": [
+    24324.0
+  ],
+  "risk_reward": 0.7,
+  "invalidation": "A 5M close below 24239.00 says the break was genuine displacement rather than the liquidity grab this trade is fading, and the 25-32 percent branch of the measured distribution is the one that happened. The level sits 49.80 points from entry, clearing the 22.45-point p90 5M bar by better than 2x and the measured 1.85-point round-trip cost at 3.7 percent of risk. TIME STOP CORRECTED 12:35 IST - THE ORIGINAL 14:00 CUT WAS BACKWARDS AND WOULD HAVE COST 28 PERCENT OF THE WINNERS. Measured across 24 decided instances: LOSSES resolve fast (median 32 min, p75 40, max 85) while WINS resolve slowly (median 62 min, p75 140, max 235). Every single loss was over inside 85 minutes, so the 50-point stop - not a clock - is what removes a broken trade, and five of eighteen winners landed after 14:00, at 14:30, 14:35, 15:00, 15:25 and 15:25. A trade still alive past its median hold is therefore NOT failing: conditional on surviving 45 minutes it went on to win 10 of 11 decided (n=13, small), and conditional on ALSO being 15+ points underwater at 45 minutes it still won 4 of 5 (n=7, very small - direction is clear, magnitude is not). CORRECT RULE: hold to the 15:30 close unless 24239.00 or 24324.00 is taken out on a 5M CLOSE. Do not cut on the clock. Note this INVERTS the displacement-trade rule where the time stop is primary - a momentum trade that has not moved is spent, a mean-reversion fade that has not yet reverted is merely unfinished.",
+  "confidence": "Low",
+  "resolution_interval": "5m",
+  "horizon_hours": 4,
+  "round_trip_cost_pct": 7.6e-05,
+  "option": "NIFTY 2026-09-01 24350 CE",
+  "lot": 65,
+  "taken_by_user": false,
+  "note": "NOT TAKEN. The user confirmed at 11:58 IST that they did not enter. Contributes ZERO to P&L. Logged and left to resolve on its own because the log scores SIGNAL quality independently of execution - the same treatment given the 25-Aug 24196 short (T020) that was signalled and not taken. At the time of that confirmation price was 24291.60, just 2.80 points above the 24288.80 entry, with neither 24324.00 nor 24239.00 touched, so nothing had been missed and the entry was still live.",
+  "track_record": {
+    "note": "^NSEI: 3/8 wins (38%), 4 timed out. Of 11 filled signals across the whole log, 0 ever reached TP1 and 8 hit the stop. Advisory only - it did not change this signal, but it is why confidence is Low.",
+    "sufficient_history": true,
+    "wins": 3,
+    "losses": 5,
+    "timeouts": 4,
+    "decisive_resolved": 8
+  }
+}

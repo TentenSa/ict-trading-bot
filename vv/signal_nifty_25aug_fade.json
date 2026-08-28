@@ -1,0 +1,75 @@
+{
+  "ticker": "^NSEI",
+  "as_of": "2026-08-25T06:00:00Z",
+  "timeframe_analyzed": "Daily -> 15M -> 5M",
+  "htf_bias": "Neutral",
+  "liquidity": {
+    "bsl": [
+      {
+        "label": "25-Aug session high - the box top",
+        "price": 24198.1
+      },
+      {
+        "label": "24-Aug close",
+        "price": 24219.05
+      }
+    ],
+    "ssl": [
+      {
+        "label": "MAX PAIN 24150 - the magnet and the target",
+        "price": 24150.0
+      },
+      {
+        "label": "24-Aug low",
+        "price": 24144.3
+      },
+      {
+        "label": "25-Aug session low - the box bottom",
+        "price": 24115.55
+      }
+    ]
+  },
+  "narrative": "THIS TRADES WITH THE PIN INSTEAD OF AGAINST IT, WHICH IS THE ONE THING BOTH OF TODAY'S LOSSES HAD IN COMMON. The 09:45 long needed price to escape upward to 24219.05 and the 10:37 short needed it to escape downward to 24025.65; both required the day to go somewhere new, and the day has refused to go anywhere new since 10:25. This setup requires the opposite. Max pain is 24150 and spot is 24149.10 - the market is already sitting on its magnet. The trade is to wait for price to be pushed to the top of the established box at 24190-24198.10 and short it back to 24150. The target is where price already is, so net displacement needed is roughly zero and no range extension is required at all. That is the only kind of trade a pinned market pays for. Open interest at the 24200 strike has grown from 53.18m at 09:29 to 70.55m now, so the wall that killed both earlier trades is the thing selling into the entry. Geometry: entry 24190.00, stop 24212.00, target 24150.00 gives 1.82R on 22.00 points of risk, which clears the 19.80 p90 5M bar so one candle cannot fill and kill. COST FLOOR CORRECTED, AND THE OLD FIGURE CAUSED REAL DAMAGE. The 10:37 short was logged at round_trip_cost_pct 0.00013, a figure carried over from an earlier session rather than measured. Measured live off the 24200 PE - spread 0.15 on a delta of 0.674, so 0.22 NIFTY points, plus roughly 0.91 points of brokerage and taxes per lot - the true round trip is 1.14 points, or 0.000047. The inflated figure forced a minimum stop of 31.4 points, which is precisely why the 24148 stop was rejected on check 14 and why the target had to be pushed to 24025.65 to manufacture a passing ratio. On the correct cost the 24148 stop was always fine and 24078.30 would have qualified at 1.77R. That mis-measurement is a direct cause of the second loss, not a footnote. REGIME, STATED PLAINLY. Six of the last eight 5M bars are below p90, the session range has not extended in over an hour, spot is within a point of max pain, and the ATM straddle prices only about 50 points of expected move for the remaining four hours. That regime vetoes any breakout trade and was the basis for recommending a stand-down twice. This is the third request, so the trade is delivered; the shape has been chosen specifically so the hostile regime is the source of the edge rather than the obstacle. The entry is conditional and may never trigger - price must first be pushed 41 points to the box top - and not triggering is an acceptable outcome, not a failure. TRACK RECORD IS NOW SUFFICIENT AND IT IS POOR. With today's two losses the ^NSEI record reaches the five-trade threshold at 1 win and 4 losses - a 20 percent hit rate, with 4 further entries having timed out unresolved. The verifier treats this as advisory and it has not been used to alter the geometry, but it should alter the size. Five trades is a small sample and the losses cluster in exactly one regime - pinned, compressed, expiry-adjacent sessions - which is the regime this trade is also being taken in, albeit from the other side of the pin.",
+  "zones": {
+    "order_block": {
+      "direction": "bearish",
+      "low": 24190.0,
+      "high": 24198.1,
+      "timeframe": "5m"
+    },
+    "dealing_range": {
+      "low": 24115.55,
+      "high": 24198.1
+    },
+    "equilibrium": 24156.83,
+    "premium_discount": "discount",
+    "ote": {
+      "low": 24166.53,
+      "high": 24180.75,
+      "swing_high": 24198.1,
+      "swing_low": 24115.55
+    }
+  },
+  "signal": "SELL",
+  "entry": 24190.0,
+  "stop_loss": 24212.0,
+  "take_profits": [
+    24150.0
+  ],
+  "risk_reward": 1.82,
+  "invalidation": "A 5M close above 24212.00 clears the 24198.10 box top by 14 points and says the range has genuinely extended upward rather than been rejected at it - at that point the pin has been broken and a fade back to 24150 has no basis. The level sits 22.00 points from entry, clearing both the 19.80 p90 5M bar and the measured 1.14 point round-trip cost by a wide margin, so one candle cannot fill the order and kill the premise and friction is only 5.2 percent of risk. Judged on a 5M CLOSE, not a wick. Time stop 14:30 IST - inside the last hour the pin tightens further and terminal theta on a 24200 PE accelerates hard.",
+  "confidence": "Medium",
+  "resolution_interval": "5m",
+  "horizon_hours": 4,
+  "round_trip_cost_pct": 4.7e-05,
+  "option": "NIFTY 2026-08-25 24200 PE",
+  "lot": 65,
+  "track_record": {
+    "note": "Track record for ^NSEI: 1/5 wins (20%), 4 timed out unresolved. Advisory only \u2014 did not change this signal.",
+    "sufficient_history": true,
+    "wins": 1,
+    "losses": 4,
+    "timeouts": 4,
+    "decisive_resolved": 5
+  }
+}

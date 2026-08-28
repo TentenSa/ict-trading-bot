@@ -1,0 +1,89 @@
+{
+  "ticker": "^NSEBANK",
+  "as_of": "2026-08-24T08:55:00Z",
+  "timeframe_analyzed": "Daily -> 15M -> 5M",
+  "htf_bias": "Bearish",
+  "liquidity": {
+    "bsl": [
+      {
+        "label": "24-Aug session high - the sweep of the 21-Aug pool",
+        "price": 57873.75
+      },
+      {
+        "label": "21-Aug high - swept at the open",
+        "price": 57772.45
+      },
+      {
+        "label": "24-Aug post-break rebound high",
+        "price": 57386.7
+      },
+      {
+        "label": "20-Aug low - now the invalidation shelf",
+        "price": 57431.8
+      }
+    ],
+    "ssl": [
+      {
+        "label": "24-Aug session low",
+        "price": 57248.9
+      },
+      {
+        "label": "18-Aug low - TP1",
+        "price": 57217.6
+      },
+      {
+        "label": "17-Aug low",
+        "price": 57119.6
+      },
+      {
+        "label": "19-Aug low - TP2, the deep pool",
+        "price": 57001.75
+      }
+    ]
+  },
+  "narrative": "Taken on the daily structure break, not on the intraday impulse. BANKNIFTY gapped up, raided the 21-Aug high 57772.45 by printing 57873.75, was rejected, and then broke the 21-Aug low 57481.55 AND the 20-Aug low 57431.80 to print 57248.90. That is the first LOWER LOW since 19-Aug and it ends the three-session higher-low sequence that made the morning version of this trade counter-trend. The trade is now trend-aligned and TP2 is simply the 19-Aug sell-side pool at 57001.75 being revisited. The 13:00 IST 5M bar was genuine displacement - 78.50 points of range against a p90 of 66.70, closing at 0.21 of its range - and that was the trigger. HONEST RISK ONE: the displacement failed intraday. Price reclaimed the 57324.45 break level and held above it for ten consecutive 5M closes between 13:25 and 14:10, fully retracing the displacement bar before settling back to 57323. The entry is therefore into a level that has already rejected once today, and the intraday tape is neutral, not impulsive. What keeps the trade alive is that the thesis is a DAILY structure break with a 2-3 day horizon, and an hour of 5M chop does not repair a daily lower low. HONEST RISK TWO: implied vol is falling, not expanding. The 25-Aug 57300 straddle went 403.85 at 12:41 to 397.95 at 13:05 to 378.60 at 14:15, minus 6.2 percent, so the option market is pricing LESS movement even as price makes new lows. That is a headwind for a long-premium directional position and it is the one condition of the three I set that this setup never met. HONEST RISK THREE: max pain sits at 57500, which is 177 points ABOVE the entry, so what pin exists pulls against the short. It is thin - 3.19m OI against NIFTY's 52.23m wall - which is why it is tolerated rather than disqualifying. Geometry: entry to stop is 106.81 points, which clears both the 66.70 p90 5M bar and the measured cost floor, so one candle cannot fill the order and kill the premise. The stop at 57430.00 is not arbitrary - it sits on the 20-Aug low of 57431.80, so a close above it means the higher-low sequence has repaired and the entire thesis is void. EXPIRY CHOICE IS THE POINT OF THIS TRADE. BANKNIFTY has no weekly after 25-Aug; the chain jumps straight to 29-Sep. Priced off the parity forward of 57702.92 rather than spot - a 0.69 percent contango worth 381 points - the 29-Sep 57500 PE returns +18.1 percent at TP2 against -6.7 percent at the stop, an option R:R of 2.68. The same thesis in the 25-Aug contract returns 0.30 or worse because theta there runs -90 per day against -11.44, and on the 57000 strike it LOSES money at target. A 2-3 day thesis cannot be expressed in a contract expiring tomorrow. Strike chosen for liquidity as well as geometry: 852k volume and 1.38m OI at 57500 against 151k and 269k at 57300. TARGET STRUCTURE CORRECTED AT LOGGING. 57217.60 was initially carried as TP1, but the verifier computes R:R against the FIRST take-profit and that pairing returns 0.99R - 105.59 points of reward against 106.81 of risk. Booking there would take a full unit of risk to earn less than one, which is the wrong shape and fails the 2.0 swing floor. The only target that justifies the risk is the 19-Aug pool at 57001.75 at 3.01R, so that is now the sole take-profit. 57217.60 remains a WAYPOINT where price may stall and where a partial scale-out is a management choice, but it is explicitly not the target the trade was taken for, and the position should not be closed there on the basis of the level alone.",
+  "zones": {
+    "order_block": {
+      "direction": "bearish",
+      "low": 57343.25,
+      "high": 57386.7,
+      "timeframe": "5m"
+    },
+    "dealing_range": {
+      "low": 57248.9,
+      "high": 57873.75
+    },
+    "equilibrium": 57561.33,
+    "premium_discount": "discount",
+    "ote": {
+      "low": 57636.31,
+      "high": 57742.34,
+      "swing_high": 57873.75,
+      "swing_low": 57248.9
+    }
+  },
+  "signal": "SELL",
+  "entry": 57323.19,
+  "stop_loss": 57430.0,
+  "take_profits": [
+    57001.75
+  ],
+  "risk_reward": 3.01,
+  "invalidation": "A 5M close above 57430.00 puts price back above the 20-Aug low of 57431.80, which repairs the higher-low sequence and voids the daily structure break the whole trade rests on. The level sits 106.81 points from entry, clearing the 66.70 p90 5M bar, so a single candle cannot both fill the order and kill the premise. Judged on a 5M CLOSE, not a wick. Deliberately the ONLY price invalidation armed. Secondary checkpoint: today's CASH CLOSE must be below 57431.80 - if the session closes above it the daily lower low never printed and the trade is void regardless of where the 5M bars went.",
+  "confidence": "Medium",
+  "resolution_interval": "5m",
+  "horizon_hours": 50,
+  "round_trip_cost_pct": 0.00011,
+  "option": "BANKNIFTY 2026-09-29 57500 PE",
+  "lot": 30,
+  "entry_premium": 718.15,
+  "entry_premium_source": "user's actual fill at 14:22 IST; chain mid was 718.58, ask 719.45",
+  "track_record": {
+    "note": "Insufficient history for ^NSEBANK: 1 resolved trade(s) logged (need 5), 1 still open. Not used to adjust this signal.",
+    "sufficient_history": false,
+    "wins": 1,
+    "losses": 0,
+    "timeouts": 0,
+    "decisive_resolved": 1
+  }
+}

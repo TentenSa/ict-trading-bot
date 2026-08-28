@@ -1,0 +1,88 @@
+{
+  "ticker": "^NSEI",
+  "as_of": "2026-08-25T04:05:00Z",
+  "timeframe_analyzed": "Daily -> 15M -> 5M",
+  "htf_bias": "Bearish",
+  "liquidity": {
+    "bsl": [
+      {
+        "label": "24-Aug high",
+        "price": 24313.0
+      },
+      {
+        "label": "24-Aug close - the gap origin, TP1",
+        "price": 24219.05
+      },
+      {
+        "label": "25-Aug session high so far",
+        "price": 24198.1
+      }
+    ],
+    "ssl": [
+      {
+        "label": "18-Aug low - entry confluence",
+        "price": 24154.9
+      },
+      {
+        "label": "24-Aug low - SWEPT at the open",
+        "price": 24144.3
+      },
+      {
+        "label": "25-Aug session low - the sweep",
+        "price": 24129.15
+      },
+      {
+        "label": "19-Aug close",
+        "price": 24078.3
+      },
+      {
+        "label": "19-Aug low - deep pool",
+        "price": 24025.65
+      }
+    ]
+  },
+  "narrative": "PAPER TRADE. Opening sell-side sweep and reversal on expiry day. NIFTY gapped down from the 24-Aug close of 24219.05 to open 24175.75, drove straight through the 24-Aug low of 24144.30 to print 24129.15 in the first five minutes, and then closed that same 09:15 candle at 24184.05 - 0.97 of its own range, i.e. at the high. A 56.55 point bar that takes out a prior day's low and closes at its top is a sell-side liquidity raid, not a breakdown. Entry is the retracement into the 62-79 percent OTE of the 24129.15-24198.10 up-leg, which spans 24143.60-24155.30 and carries confluence with the 18-Aug low at 24154.90. THE PIN IS FOR THIS TRADE, NOT AGAINST IT. Max pain is 24200 with 53.18m of open interest, the largest wall on the board, and spot sits BELOW it - so the expiry magnet pulls price up through 45 of the 64 point target rather than fighting it. That is the exact inverse of the 24-Aug BANKNIFTY setup, where max pain sat 177 points above a short and dragged against it all day. Above spot the CE walls at 24250 (18.17m) and 24300 (27.77m) cap the move, which is why TP1 is 24219.05 - the gap fill and prior close - and not something more ambitious. REACHABILITY USES RANGE, NOT EXPECTED MOVE. The ATM straddle of 82.60 implies only 66 points of expected move, but that measures net displacement of the close, not the path an intraday retracement entry must travel. NIFTY's median daily range over 65 sessions is 168.7 points and the median expiry-Tuesday is 175.0; today has spent 68.95, leaving roughly 106. The trade needs 93.45 points of travel - 29.45 down to entry plus 64 up to target - which fits a median day with room to spare. Geometry: entry to stop is 31.00 points against a p90 5M bar of 19.80, so one candle cannot both fill the order and kill the premise. Stop sits below the 24129.15 sweep low; if that goes, the raid failed and the move is a genuine breakdown targeting 24078.30. IV GATE ADAPTED FOR EXPIRY. The 24-Aug rule requires the ATM straddle to be flat-to-up before taking a long-premium break, but on expiry day the straddle decays mechanically toward intrinsic regardless of direction, so its level is not a valid test. Solved ATM IV is 16.2 percent and that is the number being tracked instead; a collapse below roughly 14 percent while price stalls voids the trade. Note the broker-published IV field reads 15.41 against a solved 16.29, an error of -2.61 percent on this strike and -8.13 percent on the 24200 - the published field is unusable today, as the 18-Aug finding predicted.",
+  "zones": {
+    "order_block": {
+      "direction": "bullish",
+      "low": 24129.15,
+      "high": 24185.7,
+      "timeframe": "5m"
+    },
+    "dealing_range": {
+      "low": 24129.15,
+      "high": 24198.1
+    },
+    "equilibrium": 24163.63,
+    "premium_discount": "premium",
+    "ote": {
+      "low": 24143.6,
+      "high": 24155.3,
+      "swing_high": 24198.1,
+      "swing_low": 24129.15
+    }
+  },
+  "signal": "BUY",
+  "entry": 24155.0,
+  "stop_loss": 24124.0,
+  "take_profits": [
+    24219.05
+  ],
+  "risk_reward": 2.07,
+  "invalidation": "A 5M close below 24124.00 puts price under the 24129.15 sweep low, which says the opening drive through the 24-Aug low of 24144.30 was a genuine breakdown rather than a raid, and the long is dead - the next draw is then 24078.30 and 24025.65. The level sits 31.00 points from entry, clearing the 19.80 p90 5M bar, so a single candle cannot fill the order and kill the premise. Judged on a 5M CLOSE, not a wick. Time stop 14:30 IST: on expiry day a long-premium position that has not resolved by then loses to terminal theta whatever the chart says, and the 24200 pin tightens into the close.",
+  "confidence": "Medium",
+  "resolution_interval": "5m",
+  "horizon_hours": 6,
+  "round_trip_cost_pct": 0.00012,
+  "option": "NIFTY 2026-08-25 24150 CE",
+  "lot": 65,
+  "is_paper": true,
+  "track_record": {
+    "note": "Insufficient history for ^NSEI: 3 resolved trade(s) logged (need 5), 0 still open. Not used to adjust this signal.",
+    "sufficient_history": false,
+    "wins": 1,
+    "losses": 2,
+    "timeouts": 4,
+    "decisive_resolved": 3
+  }
+}

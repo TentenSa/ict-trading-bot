@@ -1,0 +1,87 @@
+{
+  "ticker": "^NSEI",
+  "as_of": "2026-08-25T08:20:00Z",
+  "timeframe_analyzed": "Daily -> 15M -> 5M",
+  "htf_bias": "Bearish",
+  "liquidity": {
+    "bsl": [
+      {
+        "label": "24-Aug high - the swing high",
+        "price": 24313.0
+      },
+      {
+        "label": "24-Aug close",
+        "price": 24219.05
+      },
+      {
+        "label": "1-Sep max pain and 9.97m OI wall - the entry",
+        "price": 24200.0
+      },
+      {
+        "label": "25-Aug high",
+        "price": 24198.25
+      }
+    ],
+    "ssl": [
+      {
+        "label": "25-Aug low - second consecutive lower low",
+        "price": 24115.45
+      },
+      {
+        "label": "19-Aug close - waypoint",
+        "price": 24078.3
+      },
+      {
+        "label": "19-Aug low - waypoint",
+        "price": 24025.65
+      },
+      {
+        "label": "24000 round - TP1",
+        "price": 24000.0
+      }
+    ]
+  },
+  "narrative": "BANKNIFTY IS EXCLUDED BY THE CONSTRAINT, NOT BY PREFERENCE. Its chain runs 25-Aug then 29-Sep with no weekly between, so a 1-Sep expiry does not exist there and this is a NIFTY-only answer. THE SETUP SELLS INTO THE MAGNET RATHER THAN FIGHTING IT, WHICH IS THE CORRECTION TODAY'S LOSSES DEMANDED. 1-Sep max pain is 24200 with spot at 24139.60, so the magnet sits 60 points ABOVE - and on a naive read that argues against a put. Both trades lost today by placing an entry where the pin pulled against the position for its whole life. Here the pin is used as the ENTRY instead: price is expected to drift up toward 24200, and 24200 is precisely where the short is taken. The magnet delivers the fill rather than opposing the target. Structure supports the direction. NIFTY has printed lower highs on two sessions - 24313.00 on 24-Aug then 24198.25 on 25-Aug - and lower lows on three - 24206.80, 24144.30, 24115.45 - so the 20-21 Aug consolidation is broken and the draw is the 19-Aug pool at 24078.30 and 24025.65 with the 24000 round beneath. Above the entry the 1-Sep chain is call-heavy and thin: 5.51m CE at 24200, 4.94m at 24300, 4.21m at 24400 and 5.08m at 24500 against far smaller put stacks, so rallies run into supply. Critically the whole 1-Sep book is small - the biggest wall is 9.97m against the 70m that sat on today's expiring 24200 strike and destroyed both intraday trades - so there is no dominant pin to be trapped by. Geometry: entry 24200.00, stop 24290.00, TP1 24000.00 is 2.22R on 90.00 points of risk. THE STOP IS AGAIN SIZED FOR GAPS. NIFTY's median absolute overnight gap is 56.3 points over three months and 88.3 over six; a 90 point stop clears both, and this is a multi-day hold that will be carried across nights. The structurally tighter alternative just above the 25-Aug high would be roughly 60 points and would sit inside the six-month median gap, which is the error that cost money on 24-Aug BANKNIFTY. Reachability: TP1 needs 140 points of NET move from current spot against 203.4 points of expected move to expiry, and the median daily range is 168.7 - comfortable over seven days, unlike every intraday shape attempted today. The 19-Aug low at 24025.65 returns only 1.94R from this entry and is therefore a WAYPOINT, not the target; 24078.30 likewise. ENTRY IS CONDITIONAL AND MAY NOT FILL. It needs a 60 point bounce and today has repeatedly punished waiting for retracements. Not filling is an acceptable outcome. An immediate alternative exists at entry 24140.00, stop 24230.00, target 23960.00 for exactly 2.00R, which trades the same structure without waiting but sells into no resistance and targets a level with nothing behind it. ENTRY MOVED 24200.00 -> 24196.00 AT LOGGING. Verifier check 16 rejected 24200.00 because it sits 1.90 points above the 56-bar high of 24198.10, so filling it would require a new intraday high - the limit is now just inside the range and fills on a tag of the wall rather than a break of it. R:R adjusts to 2.09 on 94.00 points of risk.",
+  "zones": {
+    "order_block": {
+      "direction": "bearish",
+      "low": 24198.25,
+      "high": 24219.05,
+      "timeframe": "1d"
+    },
+    "dealing_range": {
+      "low": 24025.65,
+      "high": 24313.0
+    },
+    "equilibrium": 24169.33,
+    "premium_discount": "discount",
+    "ote": {
+      "low": 24203.81,
+      "high": 24252.66,
+      "swing_high": 24313.0,
+      "swing_low": 24025.65
+    }
+  },
+  "signal": "SELL",
+  "entry": 24196.0,
+  "stop_loss": 24290.0,
+  "take_profits": [
+    24000.0
+  ],
+  "risk_reward": 2.09,
+  "invalidation": "A 5M close above 24290.00 clears the 24-Aug close of 24219.05 and approaches the 24313.00 swing high, which says the two-session lower-high sequence has failed and the down-leg from 24-Aug is being retraced rather than continued. The level sits 90.00 points from entry, clearing the 19.80 p90 5M bar, the measured 1.90 point round-trip cost at 2.1 percent of risk, and both the 56.3 point three-month and 88.3 point six-month median overnight gaps. Judged on a 5M CLOSE, not a wick. This is a multi-day hold sized for overnight carry: the stop must not be tightened to intraday structure while the position is open. Time stop: 28-Aug close - if the 19-Aug pool has not been approached in three sessions the down-leg has stalled and the premise is spent.",
+  "confidence": "Medium",
+  "resolution_interval": "5m",
+  "horizon_hours": 120,
+  "round_trip_cost_pct": 7.85e-05,
+  "option": "NIFTY 2026-09-01 24100 PE",
+  "lot": 65,
+  "track_record": {
+    "note": "Track record for ^NSEI: 2/6 wins (33%), 4 timed out unresolved. Advisory only \u2014 did not change this signal.",
+    "sufficient_history": true,
+    "wins": 2,
+    "losses": 4,
+    "timeouts": 4,
+    "decisive_resolved": 6
+  }
+}

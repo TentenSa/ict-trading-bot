@@ -1,0 +1,95 @@
+{
+  "ticker": "^NSEI",
+  "as_of": "2026-08-25T09:50:00Z",
+  "timeframe_analyzed": "Daily -> 5M",
+  "htf_bias": "Bearish daily sequence, bullish one-night skew",
+  "liquidity": {
+    "bsl": [
+      {
+        "label": "24-Aug high - the swing high and the draw",
+        "price": 24313.0
+      },
+      {
+        "label": "median next-day high for this setup (vol-normalised)",
+        "price": 24329.0
+      },
+      {
+        "label": "TP1 limit",
+        "price": 24327.0
+      }
+    ],
+    "ssl": [
+      {
+        "label": "25-Aug low - swept 24-Aug low, this is the reversal origin",
+        "price": 24115.45
+      },
+      {
+        "label": "18-Aug low - invalidation shelf",
+        "price": 24154.9
+      },
+      {
+        "label": "14:20 launch of the reversal leg",
+        "price": 24160.0
+      }
+    ]
+  },
+  "narrative": "THIS IS A STATISTICAL BTST, NOT AN ICT STRUCTURE TRADE, AND IT IS LOGGED AS SUCH. BANKNIFTY was excluded by constraint, not judgement: its chain runs 25-Aug then 29-Sep with no weekly between, so no 1-Sep contract exists. Stocks are monthly. NIFTY was the entire universe. THE SETUP: 25-Aug printed a lower low than 24-Aug (24115.45 vs 24144.30) and closed at 95.4 percent of its own range (C 24260.05 in a 24115.45-24267.05 day). Over 10 years of NIFTY dailies that pattern occurs 227 times and the next open gaps up a median 26.4 points, positive 69.6 percent of the time, against a baseline of 20.9 points and 67.0 percent. The next-day high sits a median 78.1 points above the close. THE EDGE IS THIN ONCE PRICED THROUGH THE CHAIN AND THAT IS THE HONEST FINDING. The parity forward is 96.80 points above spot, so the market already charges for the expected drift. Buying this call on a RANDOM night prices to -45 rupees per lot - the model calibrates to zero, which is how the absolute numbers can be trusted. The setup's edge over that baseline is +620 rupees per lot, stable across both basis-decay assumptions, but t=1.80, BELOW conventional significance, and the year-by-year decays: 2022 negative, 2024 and 2025 win rate exactly 50 percent. Recent profit is right-tail driven, not consistent. Best implementable rule tested (limit at close+65, exit at next close if unfilled): 10-year mean +322 per lot, win 61.3 percent, p10 -5363; 2024-26 mean +1089, win 59.1 percent. IT DOES NOT CLEAR THE R:R FLOOR AND CANNOT. A one-night option position's risk is the whole premium, so there is no stop to compute R:R against. The stop_loss field below is a STRUCTURAL-INVALIDATION level (24110, below the 25-Aug reversal origin), not a working order - the position cannot be stopped overnight and the premium is the whole risk. Verifier check 8 will fail on this by construction and that failure is accurate, not a bug to be gamed. BREAK-EVEN IS 24291 TOMORROW, +31 from the close, ABOVE the median gap of +26. The median outcome at the open is -79 rupees per lot. This trade pays from the move AFTER the open, not from the gap - do not sell at the bell. Note 24291 is the same level as the 24290 stop on the 24100 PE this replaces: the level that would have killed the put is the level the call needs. FILLED AT 149.50 against a 148.75 quoted ask, 49 rupees of slippage per lot.",
+  "zones": {
+    "order_block": {
+      "direction": "bullish",
+      "low": 24115.45,
+      "high": 24160.0,
+      "timeframe": "5m"
+    },
+    "dealing_range": {
+      "low": 24115.45,
+      "high": 24313.0
+    },
+    "equilibrium": 24214.23,
+    "premium_discount": "premium",
+    "ote": {
+      "low": 24190.4,
+      "high": 24230.7,
+      "swing_high": 24313.0,
+      "swing_low": 24115.45
+    }
+  },
+  "signal": "BUY",
+  "entry": 24260.05,
+  "stop_loss": 24110.0,
+  "take_profits": [
+    24327.0
+  ],
+  "risk_reward": 0.45,
+  "invalidation": "There is NO overnight stop - an option held across the night cannot be stopped, and the premium is the entire risk (9717.50 rupees per lot). 24110.00 is the structural death of the setup: it sits BELOW the 25-Aug low of 24115.45, which is the reversal origin, so a trade through it means the sweep-and-close-on-the-high pattern this trade is built on simply did not hold. Corrected at logging from 24160.00, which failed verifier check 9 by sitting INSIDE the 24115.45-24160.00 order block it was meant to protect against. R:R restates to 0.45 and that is the honest number. TIME STOP IS THE PRIMARY EXIT AND IT IS HARD: if the 24327.00 limit has not filled by the 26-Aug close, exit at the 26-Aug close regardless of price. The tested rule depends on that branch - removing it is what turns a +322 mean into an open-ended loss.",
+  "confidence": "Low",
+  "resolution_interval": "5m",
+  "horizon_hours": 24,
+  "round_trip_cost_pct": 7.6e-05,
+  "option": "NIFTY 2026-09-01 24300 CE",
+  "lot": 65,
+  "fill": {
+    "premium": 149.5,
+    "debit_per_lot": 9717.5,
+    "quoted_ask": 148.75,
+    "slippage_per_lot": 48.75
+  },
+  "expectancy": {
+    "method": "vol-normalised historical resimulation through a parity-forward BS reprice, n=225",
+    "baseline_random_night_per_lot": -45,
+    "edge_over_baseline_per_lot": 620,
+    "t_stat_edge": 1.8,
+    "tested_rule_mean_per_lot": 322,
+    "tested_rule_win_pct": 61.3,
+    "tested_rule_p10_per_lot": -5363,
+    "breakeven_underlying_tomorrow": 24291.0
+  },
+  "track_record": {
+    "note": "Track record for ^NSEI: 2/6 wins (33%), 4 timed out unresolved. Advisory only — did not change this signal, but it is the reason confidence is Low.",
+    "sufficient_history": true,
+    "wins": 2,
+    "losses": 4,
+    "timeouts": 4,
+    "decisive_resolved": 6
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "ticker": "^NSEI",
+  "as_of": "2026-08-25T06:40:00Z",
+  "timeframe_analyzed": "Daily -> 15M -> 5M",
+  "htf_bias": "Bearish",
+  "liquidity": {
+    "bsl": [
+      {
+        "label": "24-Aug high",
+        "price": 24313.0
+      },
+      {
+        "label": "21-Aug close - stop sits above this",
+        "price": 24252.0
+      },
+      {
+        "label": "24-Aug close",
+        "price": 24219.05
+      }
+    ],
+    "ssl": [
+      {
+        "label": "25-Aug low - second consecutive lower low",
+        "price": 24115.45
+      },
+      {
+        "label": "19-Aug close - waypoint",
+        "price": 24078.3
+      },
+      {
+        "label": "19-Aug low - waypoint",
+        "price": 24025.65
+      },
+      {
+        "label": "24000 round - TP1",
+        "price": 24000.0
+      }
+    ]
+  },
+  "narrative": "A SWING, EXPLICITLY OPT-IN, AND THE FIRST IDEA TODAY NOT FIGHTING A PIN. The 53-70m wall on the 24200 strike that broke both of today's intraday trades belongs to the 25-Aug contract and ceases to exist at 15:30 today. The 1-Sep contract carries 4.23m at the same strike, so from tomorrow this position trades on structure rather than against a magnet. Structure supports it: NIFTY has printed lower lows on two consecutive sessions - 24144.30 on 24-Aug and 24115.45 on 25-Aug - both beneath the 20-Aug low of 24184.55 and the 21-Aug low of 24206.80, so the higher-low sequence that held through 20-21 Aug is broken. The draw is the 19-Aug pool: close 24078.30, low 24025.65, and the 24000 round beneath them. THE STOP IS SIZED FOR GAPS, NOT FOR STRUCTURE, AND THAT IS DELIBERATE. The structurally natural stop is 24240, just above the 25-Aug high of 24198.25 - 60 points from entry. NIFTY's median absolute overnight gap over 121 sessions is 88.3 points, p75 161.3, and 30 percent of sessions gap 60 or more points upward. A 60 point stop on a position held across several nights is decorative. The stop is therefore 24270 for 90 points, which absorbs a median gap, and it remains structurally defensible - above the 21-Aug close of 24252 and below the 24-Aug high of 24313. This is the correction the 24-Aug BANKNIFTY short did not get, where a 106.81 point stop sat inside a 203.6 point median BANKNIFTY gap. Position size cannot be the lever because index lots are indivisible and the book runs one lot, so the stop has to do the work. THE WIDER STOP SETS THE TARGET, NOT THE OTHER WAY AROUND. At 90 points of risk the 2.0 swing floor requires 180 points of reward, which places TP1 at 24000.00 for exactly 2.00R. The 19-Aug low at 24025.65 returns only 1.71R and is therefore a WAYPOINT for a scale-out decision, not the target the trade was taken for; 24078.30 likewise. This is the third time in two days the near level has had to be moved out of TP1, and the pattern is now explicit: pick the target that justifies the risk first, then demote everything nearer. Reachability: 180 points against a median daily range of 218.0 and 7.14 days to expiry - comfortable, unlike every intraday shape attempted today. BROKER IV IS UNUSABLE ON THIS STRIKE. The published field reads 7.43 percent against a solved 9.18, an error of -22.23 percent, the worst seen on this chain and far beyond the 8.13 percent seen on the 25-Aug contract. Every figure here is solved from the live mid off a parity forward of 24257.83, which sits 75.73 points above spot - a 0.31 percent contango that would badly misprice anything computed off cash. ORDER BLOCK CORRECTED AT LOGGING: it was first declared as the 24198.25-24313.00 daily band, which swallowed the 24270.00 stop and failed verifier check 9 - a stop must sit ABOVE the block it is protecting against, not inside it. The block that actually matters is the 25-Aug rejection at the session high, 24189.95-24198.25 on the 5M, which the 24270.00 stop clears by 71.75 points.",
+  "zones": {
+    "order_block": {
+      "direction": "bearish",
+      "low": 24189.95,
+      "high": 24198.25,
+      "timeframe": "5m"
+    },
+    "dealing_range": {
+      "low": 24025.65,
+      "high": 24313.0
+    },
+    "equilibrium": 24169.33,
+    "premium_discount": "premium",
+    "ote": {
+      "low": 24203.61,
+      "high": 24252.44,
+      "swing_high": 24313.0,
+      "swing_low": 24025.65
+    }
+  },
+  "signal": "SELL",
+  "entry": 24180.0,
+  "stop_loss": 24270.0,
+  "take_profits": [
+    24000.0
+  ],
+  "risk_reward": 2.0,
+  "invalidation": "A 5M close above 24270.00 puts price back above the 21-Aug close of 24252.00 and reclaims the whole 25-Aug range, which says the two-session lower-low sequence has failed and the 20-24 Aug consolidation is reasserting. The level sits 90.00 points from entry, clearing the 19.80 p90 5M bar by a wide margin, the measured 1.83 point round-trip cost at 2.0 percent of risk, and - the reason it is set here rather than at 24240 - the 88.3 point median overnight gap. Judged on a 5M CLOSE, not a wick. This is a multi-day hold: the position will be carried across nights and the stop is sized for that, so it must not be tightened to intraday structure while the trade is open.",
+  "confidence": "Medium",
+  "resolution_interval": "5m",
+  "horizon_hours": 96,
+  "round_trip_cost_pct": 7.6e-05,
+  "option": "NIFTY 2026-09-01 24200 PE",
+  "lot": 65,
+  "track_record": {
+    "note": "Track record for ^NSEI: 1/5 wins (20%), 4 timed out unresolved. Advisory only \u2014 did not change this signal.",
+    "sufficient_history": true,
+    "wins": 1,
+    "losses": 4,
+    "timeouts": 4,
+    "decisive_resolved": 5
+  }
+}

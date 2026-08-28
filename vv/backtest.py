@@ -111,6 +111,21 @@ def log_signal(signal_path):
         "entry_filled": False,
         "filled_at": None,
         "bars_to_fill": None,
+        # Snapshot of the fields the JOURNAL needs that live only in the signal
+        # file. Resolved signal files get deleted once logged, so without this
+        # copy the journal's HTF-bias / OTE / TP2 / invalidation columns go blank
+        # for every older trade. They used to be back-filled by inheriting the
+        # NEWEST signal for that ticker, which silently put one trade's text on
+        # another's row until that bug was fixed on 2026-08-26. Blank was the
+        # honest result; persisted is the correct one.
+        "snapshot": {
+            "htf_bias": signal.get("htf_bias"),
+            "invalidation": signal.get("invalidation"),
+            "take_profits": signal.get("take_profits"),
+            "zones": signal.get("zones"),
+            "option": signal.get("option"),
+            "lot": signal.get("lot"),
+        },
     }
     entries.append(record)
     _write_log(entries)
@@ -280,6 +295,16 @@ def _resolve_one(entry):
             return finish("win", candle["dt"], elapsed_h)
 
     last = forward[-1]
+
+    # Bars ran out with no verdict. The loop above only times out when it finds a
+    # bar PAST the deadline, so a horizon that expires at or after a session close
+    # never resolves: the next bar prints the following morning. If the deadline
+    # has already passed in wall-clock time, no future bar can land inside the
+    # horizon, and waiting for one leaves the entry open indefinitely.
+    if datetime.now(timezone.utc) > deadline:
+        return finish("never_filled" if not filled else "unresolved_timeout",
+                      last["dt"], (last["dt"] - as_of).total_seconds() / 3600)
+
     entry.update(bars_elapsed=bars, entry_filled=filled,
                   hours_elapsed=round((last["dt"] - as_of).total_seconds() / 3600, 2))
     return entry

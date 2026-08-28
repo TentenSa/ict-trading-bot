@@ -37,6 +37,10 @@ def main():
     ap.add_argument("--interval", type=float, default=60.0)
     ap.add_argument("--until", default="10:00", help="UTC HH:MM to stop")
     ap.add_argument("--near", type=float, default=12.0, help="points for the approach warning")
+    ap.add_argument("--keep-going", action="store_true",
+                    help="stay armed after a trigger fires instead of exiting. Each level still "
+                         "reports once. Use when tracking an instrument all session; the default "
+                         "one-shot behaviour suits a single NO_TRADE decision.")
     ap.add_argument("--stale", type=float, default=10.0,
                     help="minutes without a closed bar before warning the feed is dead")
     a = ap.parse_args()
@@ -102,7 +106,12 @@ def main():
                     say(f"*** {lab} TRIGGER FIRED — 5M closed {seen} {direction} {lvl} "
                         f"at {last['dt'].astimezone(IST):%H:%M IST}. Session {lo:.2f}-{hi:.2f}. "
                         f"The NO_TRADE no longer applies; re-analyse for the entry.")
-                    return
+                    if not a.keep_going:
+                        return
+                    trigs = [x for x in trigs if x[1] != lvl]
+                    if not trigs:
+                        say('all triggers have fired — nothing left to watch.')
+                        return
                 gap = (last["close"] - lvl) if direction == "below" else (lvl - last["close"])
                 if 0 <= gap <= a.near and lab not in warned:
                     warned.add(lab)

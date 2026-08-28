@@ -23,3 +23,17 @@ scan_*.log
 
 # --- Transient runtime state (watcher PIDs) ---
 *.pid
+
+# --- Per-session watcher/monitor output (regenerated every run) ---
+track_*.log
+arm_*.log
+pulse.log
+close_check.log
+btst_time_stop.log
+
+# --- Transient intraday tracker state ---
+paper_trade_*.json
+
+# --- Local backups taken before destructive edits ---
+*.bak
+*.prebroker

@@ -1,0 +1,78 @@
+{
+  "ticker": "^NSEBANK",
+  "as_of": "2026-08-24T04:20:00Z",
+  "timeframe_analyzed": "Daily -> 15M -> 5M",
+  "htf_bias": "Bearish",
+  "liquidity": {
+    "bsl": [
+      {
+        "label": "24-Aug session high - the sweep",
+        "price": 57873.75
+      },
+      {
+        "label": "21-Aug high - buy-side pool, SWEPT at the open",
+        "price": 57772.45
+      }
+    ],
+    "ssl": [
+      {
+        "label": "24-Aug session low so far",
+        "price": 57729.05
+      },
+      {
+        "label": "20-Aug high - now support, sits on max pain",
+        "price": 57702.95
+      },
+      {
+        "label": "21-Aug low",
+        "price": 57481.55
+      },
+      {
+        "label": "19-Aug low - deep sell-side pool",
+        "price": 57001.75
+      }
+    ]
+  },
+  "narrative": "Chosen over NIFTY today purely on the option chain. NIFTY's 24300 strike carries 47.91m of open interest against 31.46m at the next-biggest, with max pain at 24300 sitting ABOVE spot - a pin that fights any short on the day before expiry. BANKNIFTY's largest wall is 3.59m at 58000, its max pain of 57700 sits BELOW spot at 57736, and 261.3 points of expected move remain against 144.10 already used. There is no dominant pin here and the magnet is on the side of the trade. The setup itself is the same raid that paid on Friday. BANKNIFTY gapped to 57828.15, printed 57873.75 to take out the 21-Aug high of 57772.45 by 101 points, and was rejected 144.70 points to 57729.05. Five 5M closes since have stepped down - 57807.00, 57816.45, 57796.30, 57776.70, 57768.30 - and price is back below Friday's 57761.95 close. Entry is the retracement into 57818.00, the 62 percent edge of that 57873.75-57729.05 down-leg and the first array price would reach, under equilibrium at 57801.40. THE HONEST RISK IS THE DAILY, AND IT IS AGAINST THIS TRADE. BANKNIFTY has made higher highs and higher lows for three sessions from the 19-Aug low of 57001.75, and Friday closed at 57761.95 near its high. This is a counter-trend intraday short inside a daily uptrend. What justifies taking it anyway is that the target is only the max-pain strike at 57700 and the 20-Aug high at 57702.95 - it does not require the uptrend to break, only the gap to fill. Anything below 57700 is a different trade needing a different argument. Geometry: entry to stop is 72.00 points against a p90 5M bar range of 66.70 over five sessions, and it clears the measured 59.4 point cost floor on this contract. Both checks applied, and no second invalidation is armed - the 57873.75 sweep high sits 55.75 points from entry, inside one p90 bar, so arming it would repeat the 24266.24 error of 21-Aug. Reachability: TP1 at 57700.00 needs the day's range to reach 173.75 points against 261.3 of remaining expected move - comfortable. TP2 at 57600.00 would need 273.75 and does NOT fit; runner only. 1DTE WARNING: the 25-Aug weekly expires tomorrow. At 14.5 percent IV with 1.23 days left, most of this premium is time value that is gone by tomorrow's close. The move has to start promptly or theta wins regardless of direction - hence the 13:00 IST impulse exit.",
+  "zones": {
+    "order_block": {
+      "direction": "bearish",
+      "low": 57807.0,
+      "high": 57873.75,
+      "timeframe": "5m"
+    },
+    "dealing_range": {
+      "low": 57729.05,
+      "high": 57873.75
+    },
+    "equilibrium": 57801.4,
+    "premium_discount": "discount",
+    "ote": {
+      "low": 57818.76,
+      "high": 57843.36,
+      "swing_high": 57873.75,
+      "swing_low": 57729.05
+    }
+  },
+  "signal": "SELL",
+  "entry": 57818.0,
+  "stop_loss": 57890.0,
+  "take_profits": [
+    57700.0,
+    57600.0
+  ],
+  "risk_reward": 1.64,
+  "invalidation": "A 5M close above 57890.00 says the 57772.45 pool was cleared rather than raided and the three-session uptrend is resuming - the short is then dead and on the wrong side of the daily trend. The level sits 16.25 points above the 57873.75 session high, and its 72.00 point distance from entry exceeds both the p90 5M bar range of 66.70 and the 59.4 point cost floor, so one candle cannot fill the order and kill the premise. Judged on a 5M CLOSE, not a wick. Deliberately the ONLY invalidation armed. Time stop 13:00 IST - on 1DTE a raid that has not resolved by then has lost to theta whatever the chart says.",
+  "confidence": "Medium",
+  "resolution_interval": "5m",
+  "horizon_hours": 6,
+  "round_trip_cost_pct": 0.000103,
+  "track_record": {
+    "note": "Insufficient history for ^NSEBANK: 1 resolved trade(s) logged (need 5), 0 still open. Not used to adjust this signal.",
+    "sufficient_history": false,
+    "wins": 1,
+    "losses": 0,
+    "timeouts": 0,
+    "decisive_resolved": 1
+  }
+}
