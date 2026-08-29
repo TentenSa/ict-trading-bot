@@ -72,11 +72,12 @@ python3 vv/watch_signal.py                                     # live monitoring
 | Path | Purpose |
 |---|---|
 | `ict-trading-signal-bot-prompt.md` | The analyst system prompt |
+| `CLAUDE.md` | Project instructions — auto-loads into context on a fresh clone |
 | `docs/LEARNINGS.md` | Findings that cost money — read first |
 | `docs/WORKFLOW.md` | Opening routine, output format, design rules |
 | `vv/signals_log.jsonl` | **Cross-chat trade memory** — every signal, with outcomes |
 | `vv/journal_annotations.json` | Hand annotations; source for the journal |
-| `vv/signal_*.json` / `_prose.txt` | The 8 currently open positions |
+| `vv/signal_*.json` / `_prose.txt` | One file per issued signal; open/closed state lives in `signals_log.jsonl`, not here |
 | `vv/example_*` | Output format reference (AAPL, BTC) |
 
 ### Toolchain (`vv/`)
